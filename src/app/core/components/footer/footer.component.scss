@@ -1,0 +1,41 @@
+.footer-link {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-link span {
+    flex: 1 0 200px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.footer-link span::before {
+    content: ' | ';
+}
+
+.footer-link span::first-line {
+    text-indent: -1em;
+}
+
+.footer-link a {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+.footer-link a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: #00000087;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.footer-link a:hover::before {
+    transform: scaleX(1);
+}
