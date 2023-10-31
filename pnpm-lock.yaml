@@ -52,6 +52,9 @@ devDependencies:
   '@angular/compiler-cli':
     specifier: ^16.2.0
     version: 16.2.10(@angular/compiler@16.2.10)(typescript@5.1.6)
+  '@angular/localize':
+    specifier: 16.2.10
+    version: 16.2.10(@angular/compiler-cli@16.2.10)(@angular/compiler@16.2.10)
   '@types/jasmine':
     specifier: ~4.3.0
     version: 4.3.6
@@ -1078,7 +1081,7 @@ packages:
     dependencies:
       '@babel/core': 7.22.9
       '@babel/helper-plugin-utils': 7.22.5
-      '@babel/template': 7.22.5
+      '@babel/template': 7.22.15
     dev: true
 
   /@babel/plugin-transform-destructuring@7.23.0(@babel/core@7.22.9):

@@ -9,13 +9,15 @@ import { HeaderMobileComponent } from 'src/app/modules/feature-header/components
 import { HeaderPromotionComponent } from 'src/app/modules/feature-header/components/header-promotion/header-promotion.component';
 import { NewletterComponent } from 'src/app/modules/feature-newletter/components/newletter/newletter.component';
 import { HeaderStandardComponent } from 'src/app/modules/feature-header/components/header-standard/header-standard.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    MarketplaceComponent
+    MarketplaceComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
