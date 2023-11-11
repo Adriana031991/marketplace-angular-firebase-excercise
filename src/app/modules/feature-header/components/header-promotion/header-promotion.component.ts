@@ -14,6 +14,13 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 export class HeaderPromotionComponent {
 
   path: String = imagen_path.url
-  dataTopBanner: Signal<[string, string][][]> = inject(CollectionsFbService).dataTopBanner;
+  productos: Signal<IProduct[]> = inject(CollectionsFbService).products;
+  dataProducts = computed(() => {
+    return this.productos().map((res) => {
+      res.top_banner = Object.entries(JSON.parse(res.top_banner)) as any
+      return res
+    });
+  })
+
 
 }

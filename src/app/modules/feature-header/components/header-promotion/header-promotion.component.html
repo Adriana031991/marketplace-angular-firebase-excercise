@@ -1,19 +1,19 @@
 <ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]="false">
-    <ng-template ngbSlide *ngFor="let item of dataTopBanner()">
+    <ng-template ngbSlide *ngFor="let item of dataProducts()">
         <div class="ps-block--promotion-header bg--cover"
-            style="background: url({{path}}img/banner/top/{{item[6][1]}});">
+            style="background: url({{path}}img/products/{{item.category}}/top/{{item.top_banner[6][1]}});">
             <div class="carousel-caption">
                 <div class="container1">
                     <div class="ps-block__left">
-                        <h3>{{item[0][1]}}</h3>
+                        <h3>{{item.top_banner[0][1]}}</h3>
                         <figure>
-                            <p>{{item[1][1]}}</p>
-                            <h4>{{item[2][1]}}</h4>
+                            <p>{{item.top_banner[1][1]}}</p>
+                            <h4>{{item.top_banner[2][1]}}</h4>
                         </figure>
                     </div>
                     <div class="ps-block__center">
-                        <p>{{item[3][1]}}<span>{{item[4][1]}}</span></p>
-                    </div><a class="ps-btn ps-btn--sm" href="#">{{item[5][1]}}</a>
+                        <p>{{item.top_banner[3][1]}}<span>{{item.top_banner[4][1]}}</span></p>
+                    </div><a class="ps-btn ps-btn--sm" href="#">{{item.top_banner[5][1]}}</a>
                 </div>
             </div>
         </div>

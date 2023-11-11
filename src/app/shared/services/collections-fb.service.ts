@@ -21,15 +21,15 @@ export class CollectionsFbService {
     }))
   public products = toSignal<IProduct[], IProduct[]>(this.products$, { injector: this._injector, initialValue: [] })
 
-  private dataTopBanner$: Observable<[string, string][][]> = this._http.get<[string, string]>(`${this._url}/products.json`)
-    .pipe(map((data) => {
-      let response = Object.values(data).map((res: any) => {
-        return Object.entries(JSON.parse(res.top_banner)) as [string, string][]
-      })
-      return response
-    }))
+  // private dataTopBanner$: Observable<[string, string][][]> = this._http.get<[string, string]>(`${this._url}/products.json`)
+  //   .pipe(map((data) => {
+  //     let response = Object.values(data).map((res: any) => {
+  //       return Object.entries(JSON.parse(res.top_banner)) as [string, string][]
+  //     })
+  //     return response
+  //   }))
 
-  public dataTopBanner = toSignal<[string, string][][], [string, string][][]>(this.dataTopBanner$, { injector: this._injector, initialValue: [] })
+  // public dataTopBanner = toSignal<[string, string][][], [string, string][][]>(this.dataTopBanner$, { injector: this._injector, initialValue: [] })
 
   public categories = toSignal<ICategory[], ICategory[]>(this._http.get<ICategory[]>(`${this._url}/categories.json`)
     .pipe(map(res => Object.values(res))), { injector: this._injector, initialValue: [] })

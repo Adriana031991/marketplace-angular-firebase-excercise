@@ -1,5 +1,5 @@
 export const imagen_path = {
-    url: 'http://localhost:4200/assets/template/'
+    url: 'http://localhost:4200/assets/'
     //archivo para renderizar las imagenes 
 }
 
