@@ -3,10 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'marketplace',
+    path: '',
     loadChildren: () => import('./core/components/marketplace.module').then(m => m.MarketplaceModule)
   },
-  { path: '*', pathMatch: 'full', redirectTo: '' }
 ];
 
 @NgModule({
