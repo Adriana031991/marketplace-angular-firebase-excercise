@@ -44,7 +44,7 @@ export class HeaderStandardComponent {
       this.subCategory().forEach(listOfTitle => {
         for (const index in listOfTitle) {
 
-          this.service.filter$(FilterParameters.FilterByTitleList, listOfTitle[index]).pipe(first()).subscribe({
+          this.service.filterSubCategory$(FilterParameters.FilterByTitleList, listOfTitle[index]).pipe(first()).subscribe({
             next: arraySubCategories => {
               arraySubCategories.map((res, i) => {
                 let data = {

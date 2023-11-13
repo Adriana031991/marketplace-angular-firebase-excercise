@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { imagen_path } from 'src/environment/config';
 
 @Component({
   selector: 'marketplace-home',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  path: String = imagen_path.url
 
 }

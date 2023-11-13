@@ -10,6 +10,8 @@ import { HeaderPromotionComponent } from 'src/app/modules/feature-header/compone
 import { NewletterComponent } from 'src/app/modules/feature-newletter/components/newletter/newletter.component';
 import { HeaderStandardComponent } from 'src/app/modules/feature-header/components/header-standard/header-standard.component';
 import { HomeComponent } from './home/home.component';
+import { HomeBannerComponent } from 'src/app/modules/feature-home/components/home-banner/home-banner.component';
+
 
 
 @NgModule({
@@ -17,7 +19,7 @@ import { HomeComponent } from './home/home.component';
     HeaderComponent,
     FooterComponent,
     MarketplaceComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { HomeComponent } from './home/home.component';
     HeaderPromotionComponent,
     NewletterComponent,
     HeaderStandardComponent,
+    HomeBannerComponent
   ]
 })
 export class MarketplaceModule { }

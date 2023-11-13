@@ -1,29 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MarketplaceComponent } from './marketplace.component';
-import { ErrorPageComponent } from './home/components/error-page/error-page.component';
 
 const routes: Routes = [
   {
     path: 'home',
+    component: MarketplaceComponent,
     children: [
 
       {
-        path: '',
-        component: MarketplaceComponent
+        path: 'products',
+        loadComponent: () => import('../../modules/feature-home/pages/product-list/product-list.component').then(m => m.ProductListComponent)
       },
-      // {
-      //   path: 'error',
-      //   loadComponent: () => import('./home/components/error-page/error-page.component').then(m => m.ErrorPageComponent)
-      // },
+      {
+        path: 'product',
+        loadComponent: () => import('../../modules/feature-home/pages/product-detail/product-detail.component').then(m => m.ProductDetailComponent)
+      },
+      {
+        path: 'search',
+        loadComponent: () => import('../../modules/feature-home/pages/product-list/product-list.component').then(m => m.ProductListComponent)
+      },
       {
         path: '**', pathMatch: 'full',
-        //  component: ErrorPageComponent 
-        loadComponent: () => import('./home/components/error-page/error-page.component').then(m => m.ErrorPageComponent)
-
+        loadComponent: () => import('../../modules/feature-home/pages/error-page/error-page.component').then(m => m.ErrorPageComponent)
       }
     ]
   },
+
 ];
 
 @NgModule({

@@ -6,6 +6,9 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./core/components/marketplace.module').then(m => m.MarketplaceModule)
   },
+  {
+    path: '**', pathMatch: 'full', redirectTo: 'home'
+  }
 ];
 
 @NgModule({

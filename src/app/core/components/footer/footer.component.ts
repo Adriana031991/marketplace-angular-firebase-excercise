@@ -29,7 +29,7 @@ export class FooterComponent {
     if (this.render) {
       this.render = false;
       this.subCategory().forEach(listOfTitle => {
-        this.service.filter$(FilterParameters.FilterByCategory, listOfTitle).pipe(first()).subscribe({
+        this.service.filterSubCategory$(FilterParameters.FilterByCategory, listOfTitle).pipe(first()).subscribe({
           next: arraySubCategories => {
             arraySubCategories.map((res) => {
               let data = {
