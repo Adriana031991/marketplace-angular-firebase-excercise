@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { imagen_path } from 'src/environment/config';
 
 @Component({
   selector: 'marketplace-error-page',
@@ -9,5 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./error-page.component.scss']
 })
 export class ErrorPageComponent {
+  path: String = imagen_path.url
 
 }

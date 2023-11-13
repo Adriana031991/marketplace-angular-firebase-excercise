@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Injector, effect } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { api_path } from 'src/environment/config';
 import { IProduct } from '../models/IProduct.interface';
 import { Observable, map } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ICategory } from '../models/ICategory.interface';
 import { ISubCategory } from '../models/ISubCategory.interface';
@@ -15,11 +14,17 @@ export class CollectionsFbService {
 
   private _url = api_path.url;
 
-  private products$: Observable<IProduct[]> = this._http.get<IProduct[]>(`${this._url}/products.json`)
+  private productsValue$: Observable<IProduct[]> = this._http.get<IProduct[]>(`${this._url}/products.json`)
     .pipe(map((data) => {
       return Object.values(data)
     }))
-  public products = toSignal<IProduct[], IProduct[]>(this.products$, { injector: this._injector, initialValue: [] })
+  public productsValue = toSignal<IProduct[], IProduct[]>(this.productsValue$, { injector: this._injector, initialValue: [] })
+
+  private productsKey$: Observable<String[]> = this._http.get<String[]>(`${this._url}/products.json`)
+    .pipe(map((data) => {
+      return Object.keys(data)
+    }))
+  public productsKey = toSignal<String[], String[]>(this.productsKey$, { injector: this._injector, initialValue: [] })
 
   public categories = toSignal<ICategory[], ICategory[]>(this._http.get<ICategory[]>(`${this._url}/categories.json`)
     .pipe(map(res => Object.values(res))), { injector: this._injector, initialValue: [] })
@@ -33,11 +38,10 @@ export class CollectionsFbService {
       )
   }
 
-  public productsLimitData$(startAt: String, limitToFirst: Number): Observable<IProduct[]> {
+  public productsLimitData$(startAt: String, limitToFirst: Number): Observable<[string, IProduct][]> {
     return this._http.get<IProduct[]>(`${this._url}/products.json?orderBy="$key"&startAt="${startAt}"&limitToFirst=${limitToFirst}&printy=pretty`)
       .pipe(map((data) => {
-        console.log(data);
-        return Object.values(data)
+        return Object.entries(data)
       }))
   }
 
