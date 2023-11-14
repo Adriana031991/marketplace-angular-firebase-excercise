@@ -150,7 +150,7 @@
 
 @media (max-width: 1199px) {
   .ps-banner--market-4 {
-    min-height: 350px !important;
+    min-height: 400px;
   }
 
   .ps-banner--market-4 img {
