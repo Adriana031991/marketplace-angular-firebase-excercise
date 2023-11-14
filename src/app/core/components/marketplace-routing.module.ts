@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MarketplaceComponent } from './marketplace.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+
   {
-    path: 'home',
+    path: '',
     component: MarketplaceComponent,
     children: [
-
       {
         path: 'products',
         loadComponent: () => import('../../modules/feature-home/pages/product-list/product-list.component').then(m => m.ProductListComponent)
@@ -21,11 +22,19 @@ const routes: Routes = [
         loadComponent: () => import('../../modules/feature-home/pages/product-list/product-list.component').then(m => m.ProductListComponent)
       },
       {
-        path: '**', pathMatch: 'full',
+        path: '',
+        redirectTo: '',
+        pathMatch: 'full'
+      },
+      {
+        path: '**',
+        // pathMatch: 'full',
         loadComponent: () => import('../../modules/feature-home/pages/error-page/error-page.component').then(m => m.ErrorPageComponent)
+
       }
     ]
   },
+
 
 ];
 

@@ -14,10 +14,10 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     MarketplaceModule,
     RouterModule,
+    AppRoutingModule,
 
   ],
   providers: [{

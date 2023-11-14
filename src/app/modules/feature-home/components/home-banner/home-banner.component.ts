@@ -30,10 +30,7 @@ export class HomeBannerComponent {
       next: data => {
         data.map(res => {
           res[1].horizontal_slider = Object.entries(JSON.parse(res[1].horizontal_slider)) as any
-
           this.sampleProductData.update((state) => [...state, res[1]])
-          console.log(this.sampleProductData()[0].horizontal_slider);
-
         })
       },
       error: err => {
