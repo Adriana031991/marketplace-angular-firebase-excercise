@@ -19,16 +19,11 @@ export class HomeBannerComponent {
   constructor() {
     effect(() => {
       this.service.sampleProductLimit()
-    });
-
-    effect(() => {
       this.sampleProductData = this.service.homeBannerData
     });
   }
 
   sampleProductData = signal<IProduct[]>([])
-
-
 
 
 }

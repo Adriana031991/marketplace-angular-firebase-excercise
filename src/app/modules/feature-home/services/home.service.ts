@@ -10,7 +10,6 @@ export class HomeService {
 
   firebaseCollectionService = inject(CollectionsFbService);
   homeBannerData = signal<IProduct[]>([])
-  promotionsBannerData = signal<IProduct[]>([])
 
   indexProduct = computed(() => {
     let productsKey = this.firebaseCollectionService.productsKey()

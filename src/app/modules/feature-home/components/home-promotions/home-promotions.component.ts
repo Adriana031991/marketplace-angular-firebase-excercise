@@ -1,14 +1,29 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HomeService } from '../../services/home.service';
+import { IProduct } from 'src/app/shared/models/IProduct.interface';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'marketplace-home-promotions',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './home-promotions.component.html',
   styleUrls: ['./home-promotions.component.scss']
 })
 export class HomePromotionsComponent {
   @Input() path: String = ''
+  service = inject(HomeService)
+
+  constructor() {
+    effect(() => {
+      this.service.sampleProductLimit()
+
+      this.sampleProductData = this.service.homeBannerData
+
+    });
+  }
+
+  sampleProductData = signal<IProduct[]>([])
 
 }
