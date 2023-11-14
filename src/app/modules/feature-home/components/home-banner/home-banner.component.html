@@ -1,8 +1,9 @@
 <div class="ps-home-banner">
-    <ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]="false">
+    <ngb-carousel [showNavigationIndicators]="false" [interval]="1000000000">
 
         <ng-template ngbSlide *ngFor="let slide of sampleProductData()">
-            <div class="ps-banner--market-4">
+            <div class="ps-banner--market-4"
+                style="background: no-repeat url({{path}}/img/products/{{slide.category}}/horizontal/{{slide.horizontal_slider[6][1]}});">
                 <div class="carousel-caption">
                     <img src="{{path}}/img/products/{{slide.category}}/horizontal/{{slide.horizontal_slider[6][1]}}"
                         alt="">

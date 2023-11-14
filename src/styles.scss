@@ -13,3 +13,25 @@
 .carousel-item span {
     display: none !important;
 }
+
+.carousel-control-prev,
+.carousel-control-next {
+    border: none !important;
+    background-color: #0000001f !important;
+    height: 20% !important;
+    width: 6% !important;
+    position: absolute;
+    top: 30% !important;
+    margin: 0% 5% 0 5% !important;
+    border-radius: 5% !important;
+}
+
+.carousel-control-prev-icon {
+    color: black !important;
+
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: #999999ab !important;
+}

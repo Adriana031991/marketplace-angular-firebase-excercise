@@ -31,11 +31,15 @@ export class HeaderStandardComponent {
 
   subCategory = computed(() => {
     return this.categories().map(value => {
-      return JSON.parse(value.title_list).map((element: any) => element);
+      return JSON.parse(value.title_list).map((element: any) => element) as String;
 
     })
   })
 
+  /**
+   * 
+  funcion callback para re-renderizar el html y que funcione los plugins de la plantilla
+  */
 
   callback() {
 

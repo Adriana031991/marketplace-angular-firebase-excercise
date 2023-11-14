@@ -37,7 +37,8 @@ export class HomeBannerComponent {
         console.log(err);
       }
     })
-
   })
+
+
 
 }

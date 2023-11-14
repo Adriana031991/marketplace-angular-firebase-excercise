@@ -13,7 +13,8 @@
                     </div>
                     <div class="ps-block__center">
                         <p>{{item.top_banner[3][1]}}<span>{{item.top_banner[4][1]}}</span></p>
-                    </div><a class="ps-btn ps-btn--sm" href="#">{{item.top_banner[5][1]}}</a>
+                    </div><a class="ps-btn ps-btn--sm" [routerLink]="['/product/{{item.url}}']"
+                        routerLinkActive="router-link-active">{{item.top_banner[5][1]}}</a>
                 </div>
             </div>
         </div>

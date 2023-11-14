@@ -34,10 +34,12 @@ export class HeaderMobileComponent {
   isActive = true;
 
 
+  /**
+   * 
+  funcion callback para re-renderizar el html y que funcione los plugins de la plantilla
+  */
 
   callback() {
-
-
     if (this.render) {
       this.render = false;
       this.subCategory().forEach(listOfTitle => {
