@@ -1,4 +1,4 @@
-<div class="ps-promotions">
+<div *ngIf="!preload" class="ps-promotions">
 
     <div class="container">
 
@@ -13,5 +13,11 @@
         </div>
 
     </div>
+
+</div>
+
+<div *ngIf="preload" class="d-flex justify-content-center">
+
+    <div class="spinner-border text-muted my-5"></div>
 
 </div>

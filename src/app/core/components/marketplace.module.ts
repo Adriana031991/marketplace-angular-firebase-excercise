@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { HomeBannerComponent } from 'src/app/modules/feature-home/components/home-banner/home-banner.component';
 import { HomeCaracteristicsComponent } from 'src/app/modules/feature-home/components/home-caracteristics/home-caracteristics.component';
 import { HomePromotionsComponent } from 'src/app/modules/feature-home/components/home-promotions/home-promotions.component';
+import { HomeDealHotTodayComponent } from 'src/app/modules/feature-home/components/home-deal-hot-today/home-deal-hot-today.component';
 
 
 
@@ -33,7 +34,8 @@ import { HomePromotionsComponent } from 'src/app/modules/feature-home/components
     HeaderStandardComponent,
     HomeBannerComponent,
     HomeCaracteristicsComponent,
-    HomePromotionsComponent
+    HomePromotionsComponent,
+    HomeDealHotTodayComponent
 
   ]
 })

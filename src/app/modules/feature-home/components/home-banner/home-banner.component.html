@@ -1,5 +1,10 @@
-<div class="ps-home-banner">
-    <ngb-carousel [showNavigationIndicators]="false" [interval]="1000000000">
+<div *ngIf="preload" class="d-flex justify-content-center">
+
+    <div class="spinner-border text-muted my-5"></div>
+
+</div>
+<div *ngIf="!preload" class="ps-home-banner">
+    <ngb-carousel [showNavigationIndicators]="false" [interval]="5000">
 
         <ng-template ngbSlide *ngFor="let slide of sampleProductData()">
             <div class="ps-banner--market-4"
@@ -15,8 +20,8 @@
                                 <strong> {{slide.horizontal_slider[4][1]}} </strong>
                             </p>
                         </h3>
-                        <a class="ps-btn" [routerLink]="['/product/{{slide.url}}']"
-                            >{{slide.horizontal_slider[5][1]}}</a>
+                        <a class="ps-btn"
+                            [routerLink]="['/product/{{slide.url}}']">{{slide.horizontal_slider[5][1]}}</a>
                     </div>
                 </div>
             </div>

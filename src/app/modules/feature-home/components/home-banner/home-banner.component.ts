@@ -16,10 +16,13 @@ export class HomeBannerComponent {
 
   @Input() path: String = ''
   service = inject(HomeService)
+  preload: Boolean = true;
+
   constructor() {
     effect(() => {
       this.service.sampleProductLimit()
       this.sampleProductData = this.service.homeBannerData
+      this.preload = this.service.preload()
     });
   }
 
