@@ -16,12 +16,13 @@ import { HomePromotionsComponent } from 'src/app/modules/feature-home/components
 
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     MarketplaceComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +34,7 @@ import { HomePromotionsComponent } from 'src/app/modules/feature-home/components
     HomeBannerComponent,
     HomeCaracteristicsComponent,
     HomePromotionsComponent
+
   ]
 })
 export class MarketplaceModule { }

@@ -5,7 +5,7 @@ import { MarketplaceComponent } from './marketplace.component';
 const routes: Routes = [
 
   {
-    path: '',
+    path: 'home',
     component: MarketplaceComponent,
     children: [
       {
@@ -20,14 +20,10 @@ const routes: Routes = [
         path: 'search',
         loadComponent: () => import('../../modules/feature-home/pages/product-list/product-list.component').then(m => m.ProductListComponent)
       },
-      {
-        path: '',
-        redirectTo: '',
-        pathMatch: 'full'
-      },
+
       {
         path: '**',
-        // pathMatch: 'full',
+        pathMatch: 'full',
         loadComponent: () => import('../../modules/feature-home/pages/error-page/error-page.component').then(m => m.ErrorPageComponent)
 
       }
