@@ -1,3 +1,7 @@
+<!-- <div *ngFor="let item of productOffersData()">
+    {{item.gallery}}
+</div> -->
+
 <!--=====================================
     	Home Deal Hot Today
     	======================================-->
@@ -15,9 +19,16 @@
             <div class="col-xl-9 col-12 ">
 
                 <div class="ps-block--deal-hot" data-mh="dealhot">
+                    <div *ngIf="preload" class="d-flex justify-content-center">
 
+                        <div class="spinner-border text-muted my-5"></div>
 
-                    <marketplace-carousel-deal-hot [path]="path"></marketplace-carousel-deal-hot>
+                    </div>
+                    <div *ngIf="!preload">
+                        <marketplace-carousel-deal-hot [path]="path"
+                            [productsOffers]="productOffersData()"></marketplace-carousel-deal-hot>
+                    </div>
+
 
 
                 </div><!-- End deal hot -->
@@ -31,8 +42,15 @@
             <div class="col-xl-3 col-12 ">
 
                 <aside class="widget widget_best-sale" data-mh="dealhot">
+                    <div *ngIf="preload" class="d-flex justify-content-center">
 
-                    <marketplace-carousel-top-best-seller [path]="path"></marketplace-carousel-top-best-seller>
+                        <div class="spinner-border text-muted my-5"></div>
+
+                    </div>
+                    <div *ngIf="!preload">
+                        <marketplace-carousel-top-best-seller [path]="path"
+                            [bestSeller]="productOffersData()"></marketplace-carousel-top-best-seller>
+                    </div>
                 </aside><!-- End Aside -->
 
             </div><!-- End Columns -->

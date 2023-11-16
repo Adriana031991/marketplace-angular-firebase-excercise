@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { IProduct } from 'src/app/shared/models/IProduct.interface';
 
 @Component({
   selector: 'marketplace-carousel-top-best-seller',
@@ -12,5 +13,6 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class CarouselTopBestSellerComponent {
   @Input() path: String = ''
+  @Input() bestSeller: IProduct[] = []
 
 }

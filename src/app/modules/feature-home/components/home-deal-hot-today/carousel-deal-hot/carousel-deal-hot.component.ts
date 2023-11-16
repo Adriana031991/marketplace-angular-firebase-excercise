@@ -2,6 +2,7 @@ import { Component, Input, ViewChild, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { IProduct } from 'src/app/shared/models/IProduct.interface';
 
 
 @Component({
@@ -16,9 +17,11 @@ import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 export class CarouselDealHotComponent {
   @Input() path: String = ''
+  @Input() productsOffers: IProduct[] = []
   @ViewChild(NgbCarousel) carouselView: NgbCarousel | undefined;
 
   constructor() {
+    console.log(this.productsOffers);
     effect(() => {
 
     })

@@ -14,7 +14,7 @@ export class HomeService {
   // stockProducts = signal<IProduct[]>([])
   preload = signal<Boolean>(true);
 
-  preloadOffers = computed(() => (this.getProductsToGallery().length === 0) ? false : true)
+  preloadOffers = computed(() => (this.getProductsToGallery().length === 0) ? true : false)
 
   indexProduct = computed(() => {
     let productsKey = this.firebaseCollectionService.productsKey()
@@ -44,6 +44,7 @@ export class HomeService {
       const regEx = /^(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))$/
       const today = new Date('2020-06-29')
       res.offer = JSON.parse(res.offer);
+      res.gallery = JSON.parse(res.gallery);
 
       if (regEx.test(res.offer[2])) {
         let offerDate = new Date(
