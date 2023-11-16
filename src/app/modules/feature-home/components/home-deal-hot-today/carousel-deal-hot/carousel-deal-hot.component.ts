@@ -1,7 +1,7 @@
-import { Component, Input, OnInit, ViewChild, effect, inject } from '@angular/core';
+import { Component, Input, ViewChild, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { NgbCarousel, NgbCarouselModule, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { NgbCarousel, NgbCarouselModule, NgbSlideEventSource } from '@ng-bootstr
 })
 
 
-export class CarouselDealHotComponent implements OnInit {
+export class CarouselDealHotComponent {
   @Input() path: String = ''
   @ViewChild(NgbCarousel) carouselView: NgbCarousel | undefined;
 
@@ -23,9 +23,7 @@ export class CarouselDealHotComponent implements OnInit {
 
     })
   }
-  ngOnInit(): void {
 
-  }
 
   previousCarousel() {
     if (this.carouselView) {

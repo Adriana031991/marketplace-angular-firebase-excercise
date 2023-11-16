@@ -4481,6 +4481,7 @@ input[type=number] {
 .ps-block--deal-hot {
   padding: 13px 30px 30px;
   border: 2px solid #fcb800;
+  height: 96%;
 }
 
 .ps-block--deal-hot .ps-block__header {
