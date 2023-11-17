@@ -1,32 +1,39 @@
-import { Component, Input, ViewChild, effect } from '@angular/core';
+
+import {  ChangeDetectorRef, Component, Input, OnInit, ViewChild, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarousel, NgbCarouselModule, } from '@ng-bootstrap/ng-bootstrap';
 import { IProduct } from 'src/app/shared/models/IProduct.interface';
+import { CarouselGalleryComponent } from './carousel-gallery/carousel-gallery.component';
 
 
 @Component({
   selector: 'marketplace-carousel-deal-hot',
   standalone: true,
-  imports: [CommonModule, NgbCarouselModule, RouterModule],
+  imports: [CommonModule, NgbCarouselModule, RouterModule, CarouselGalleryComponent],
   providers: [NgbCarousel],
   templateUrl: './carousel-deal-hot.component.html',
   styleUrls: ['./carousel-deal-hot.component.scss']
 })
 
 
-export class CarouselDealHotComponent {
+export class CarouselDealHotComponent implements OnInit {
   @Input() path: String = ''
   @Input() productsOffers: IProduct[] = []
-  @ViewChild(NgbCarousel) carouselView: NgbCarousel | undefined;
+  @ViewChild('firstCarousel') carouselView: NgbCarousel | undefined;
 
-  constructor() {
-    console.log(this.productsOffers);
-    effect(() => {
+  gallery: String[] = [];
+  category: String = '';
 
+  constructor(private cdref: ChangeDetectorRef) { }
+
+  ngOnInit(): void {
+    this.productsOffers.map(res => {
+      this.gallery = Array.from(res.gallery)
+      this.category = res.category
     })
-  }
 
+  }
 
   previousCarousel() {
     if (this.carouselView) {
@@ -39,4 +46,9 @@ export class CarouselDealHotComponent {
       this.carouselView.next();
     }
   }
+
+
+
+
+
 }

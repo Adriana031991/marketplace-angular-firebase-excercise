@@ -1,0 +1,44 @@
+<!-- <div class="ps-product__header"></div> -->
+
+<div class="ps-product__thumbnail" data-vertical="true">
+
+    <figure>
+
+        <div class="ps-wrapper">
+
+            <div class="ps-product__gallery" data-arrow="true">
+
+                <ngb-carousel #secondCarousel [showNavigationArrows]="false" [showNavigationIndicators]="false"
+                    [interval]="30000">
+
+                    <ng-template ngbSlide #secondSlide *ngFor="let image of offers?.gallery;let i =index"
+                        [id]="(i+1).toString()">
+
+
+                        <div class="item">
+                            <!-- <a href="{{path}}/img/products/{{category}}/gallery/{{image}}"> -->
+                            <img src="{{path}}/img/products/{{offers?.category}}/gallery/{{image}}"
+                                alt="{{offers?.category}}">
+
+                            <!-- </a> -->
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+
+            <div class="ps-product__badge">
+                <span>Save <br> $280.000 </span>
+            </div>
+        </div>
+
+    </figure>
+
+    <div class="ps-product__variants" data-item="4" data-md="3" data-sm="3" data-arrow="false">
+
+        <div class="item" *ngFor="let image of offers?.gallery; let i = index" (click)="showImage((i+1).toString())">
+            <img src="{{path}}/img/products/{{offers?.category}}/gallery/{{image}}" alt="{{offers?.category}}">
+        </div>
+
+    </div>
+
+</div>

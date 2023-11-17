@@ -22,8 +22,6 @@ export class HomeDealHotTodayComponent {
     effect(() => {
       this.productOffersData.set(this.service.getProductsToGallery())
       this.preload = this.service.preloadOffers()
-      console.log(this.productOffersData());
-
     }, { allowSignalWrites: true });
   }
 

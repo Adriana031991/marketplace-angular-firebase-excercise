@@ -9869,7 +9869,7 @@ input[type=number] {
 }
 
 .ps-product--detail .ps-product__header .ps-product__thumbnail {
-  max-width: 43%;
+  max-width: 100%;
 }
 
 .ps-product--detail .ps-product__header .ps-product__info {
