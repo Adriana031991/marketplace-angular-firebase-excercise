@@ -1,3 +1,4 @@
+import { CountdownTimerModule } from './../../../../../../../projects/countdown-timer/src/lib/countdown-timer.module';
 
 import { Component, Input, ViewChild, } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,7 +11,7 @@ import { CarouselGalleryComponent } from './carousel-gallery/carousel-gallery.co
 @Component({
   selector: 'marketplace-carousel-deal-hot',
   standalone: true,
-  imports: [CommonModule, NgbCarouselModule, RouterModule, CarouselGalleryComponent],
+  imports: [CommonModule, NgbCarouselModule, RouterModule, CarouselGalleryComponent, CountdownTimerModule],
   providers: [NgbCarousel],
   templateUrl: './carousel-deal-hot.component.html',
   styleUrls: ['./carousel-deal-hot.component.scss']
@@ -21,17 +22,14 @@ export class CarouselDealHotComponent {
   @Input() path: String = ''
   @Input() productsOffers: IProduct[] = []
   @ViewChild('firstCarousel') carouselView: NgbCarousel | undefined;
-  save: Number = 0;
-  discountdate: Date = new Date();
+  discount: Number = 0;
+  dateDiscount: string = '';
 
-  discount(event: Number) {
-    this.save = event
-
+  dataOffer(event: { discount: Number, dateOffer: string }) {
+    this.discount = event.discount;
+    this.dateDiscount = event.dateOffer;
   }
 
-  offerDate(event: any) {
-    this.discountdate = event
-  }
 
   previousCarousel() {
     if (this.carouselView) {

@@ -18,7 +18,7 @@
     <!--=====================================
         Product Deal Home
         ======================================-->
-    <ngb-carousel #firstCarousel [showNavigationArrows]="false" [showNavigationIndicators]="false" [interval]="10000">
+    <ngb-carousel #firstCarousel [showNavigationArrows]="false" [showNavigationIndicators]="false" [interval]="1000000">
 
         <ng-template ngbSlide #firstSlide *ngFor="let item of productsOffers">
 
@@ -26,8 +26,8 @@
 
                 <div class="ps-product__header">
 
-                    <marketplace-carousel-gallery [offers]="item" [path]="path" (discount)="discount($event)"
-                        (offerDate)="offerDate($event)"></marketplace-carousel-gallery>
+                    <marketplace-carousel-gallery [offers]="item" [path]="path"
+                        (dataOffer)="dataOffer($event)"></marketplace-carousel-gallery>
                     <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -59,7 +59,7 @@
 
                         <div class="ps-product__meta">
 
-                            <h4 class="ps-product__price sale">${{save}} <del> {{item.price}}</del></h4>
+                            <h4 class="ps-product__price sale">${{discount}} <del> {{item.price}}</del></h4>
 
                             <div class="ps-product__rating">
 
@@ -85,7 +85,8 @@
 
                         </div>
 
-                        <div class="ps-product__expires">
+                        <lib-countdown-timer [finishDateString]="dateDiscount"></lib-countdown-timer>
+                        <!-- <div class="ps-product__expires">
 
                             <p>Expires In</p>
 
@@ -109,7 +110,7 @@
 
                             </ul>
 
-                        </div>
+                        </div> -->
 
                         <div class="ps-product__processs-bar">
 

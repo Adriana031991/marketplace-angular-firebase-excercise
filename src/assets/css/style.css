@@ -10236,6 +10236,7 @@ input[type=number] {
 .ps-product--hot-deal .ps-product__expires {
   border-top: 1px solid #e4e4e4;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .ps-product--hot-deal .ps-product__expires p {
