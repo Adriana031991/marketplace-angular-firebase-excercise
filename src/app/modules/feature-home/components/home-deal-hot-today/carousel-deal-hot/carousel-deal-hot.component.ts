@@ -1,5 +1,5 @@
 
-import {  ChangeDetectorRef, Component, Input, OnInit, ViewChild, } from '@angular/core';
+import { Component, Input, ViewChild, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgbCarousel, NgbCarouselModule, } from '@ng-bootstrap/ng-bootstrap';
@@ -17,22 +17,20 @@ import { CarouselGalleryComponent } from './carousel-gallery/carousel-gallery.co
 })
 
 
-export class CarouselDealHotComponent implements OnInit {
+export class CarouselDealHotComponent {
   @Input() path: String = ''
   @Input() productsOffers: IProduct[] = []
   @ViewChild('firstCarousel') carouselView: NgbCarousel | undefined;
+  save: Number = 0;
+  discountdate: Date = new Date();
 
-  gallery: String[] = [];
-  category: String = '';
+  discount(event: Number) {
+    this.save = event
 
-  constructor(private cdref: ChangeDetectorRef) { }
+  }
 
-  ngOnInit(): void {
-    this.productsOffers.map(res => {
-      this.gallery = Array.from(res.gallery)
-      this.category = res.category
-    })
-
+  offerDate(event: any) {
+    this.discountdate = event
   }
 
   previousCarousel() {

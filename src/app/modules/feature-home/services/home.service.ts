@@ -11,7 +11,6 @@ export class HomeService {
   firebaseCollectionService = inject(CollectionsFbService);
   homeBannerData = signal<IProduct[]>([])
   offerProducts = signal<IProduct[]>([])
-  // stockProducts = signal<IProduct[]>([])
   preload = signal<Boolean>(true);
 
   preloadOffers = computed(() => (this.getProductsToGallery().length === 0) ? true : false)
@@ -42,6 +41,7 @@ export class HomeService {
 
     this.firebaseCollectionService.productsValue().map(res => {
       const regEx = /^(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))$/
+      // TODO: PENDIENTE QUITAR EL STRING DE LA CONST TODAY PARA QUE TOME LA FECHA ACTUAL
       const today = new Date('2020-06-29')
       res.offer = JSON.parse(res.offer);
       res.gallery = JSON.parse(res.gallery);
@@ -55,8 +55,6 @@ export class HomeService {
 
         if (today < offerDate && res.stock > 0) {
           offerProducts = [...offerProducts, res]
-          // this.preload.set(false)
-
         }
       }
     })

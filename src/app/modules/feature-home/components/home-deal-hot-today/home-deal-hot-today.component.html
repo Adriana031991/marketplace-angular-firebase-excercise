@@ -15,12 +15,12 @@
             <div class="col-xl-9 col-12 ">
 
                 <div class="ps-block--deal-hot" data-mh="dealhot">
-                    <div *ngIf="preload" class="d-flex justify-content-center">
+                    <div *ngIf="preload()" class="d-flex justify-content-center">
 
                         <div class="spinner-border text-muted my-5"></div>
 
                     </div>
-                    <div *ngIf="!preload">
+                    <div *ngIf="!preload()">
                         <marketplace-carousel-deal-hot [path]="path"
                             [productsOffers]="productOffersData()"></marketplace-carousel-deal-hot>
                     </div>
@@ -38,12 +38,12 @@
             <div class="col-xl-3 col-12 ">
 
                 <aside class="widget widget_best-sale" data-mh="dealhot">
-                    <div *ngIf="preload" class="d-flex justify-content-center">
+                    <div *ngIf="preload()" class="d-flex justify-content-center">
 
                         <div class="spinner-border text-muted my-5"></div>
 
                     </div>
-                    <div *ngIf="!preload">
+                    <div *ngIf="!preload()">
                         <marketplace-carousel-top-best-seller [path]="path"
                             [bestSeller]="productOffersData()"></marketplace-carousel-top-best-seller>
                     </div>

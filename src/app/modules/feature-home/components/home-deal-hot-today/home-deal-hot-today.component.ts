@@ -1,4 +1,4 @@
-import { Component, Input, effect, inject, signal } from '@angular/core';
+import { Component, Input, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeService } from '../../services/home.service';
 import { IProduct } from 'src/app/shared/models/IProduct.interface';
@@ -16,15 +16,7 @@ export class HomeDealHotTodayComponent {
 
   @Input() path: String = ''
   service = inject(HomeService)
-  preload: Boolean = true;
-
-  constructor() {
-    effect(() => {
-      this.productOffersData.set(this.service.getProductsToGallery())
-      this.preload = this.service.preloadOffers()
-    }, { allowSignalWrites: true });
-  }
-
-  productOffersData = signal<IProduct[]>([])
+  preload = computed(() => this.service.preload());
+  productOffersData = computed(() => this.service.getProductsToGallery())
 
 }
