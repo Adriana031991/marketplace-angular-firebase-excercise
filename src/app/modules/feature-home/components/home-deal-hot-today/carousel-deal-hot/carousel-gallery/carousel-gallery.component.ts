@@ -24,13 +24,12 @@ export class CarouselGalleryComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this.offers) {
+    if (this.offers?.offer[0] == 'Disccount') {
       this.dataOffer.emit(
         {
           discount: Math.floor(this.offers?.price - (this.offers?.price * parseInt(this.offers?.offer[1]) / 100)),
           dateOffer: this.offers?.offer[2]
         }
-
       )
       this.savings = Math.floor(this.offers?.price * parseInt(this.offers?.offer[1]) / 100)
 

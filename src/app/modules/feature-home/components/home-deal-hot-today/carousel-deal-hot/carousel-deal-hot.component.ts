@@ -1,6 +1,6 @@
 import { CountdownTimerModule } from './../../../../../../../projects/countdown-timer/src/lib/countdown-timer.module';
 
-import { Component, Input, ViewChild, } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgbCarousel, NgbCarouselModule, } from '@ng-bootstrap/ng-bootstrap';
@@ -18,18 +18,30 @@ import { CarouselGalleryComponent } from './carousel-gallery/carousel-gallery.co
 })
 
 
-export class CarouselDealHotComponent {
+export class CarouselDealHotComponent implements OnInit {
   @Input() path: String = ''
   @Input() productsOffers: IProduct[] = []
   @ViewChild('firstCarousel') carouselView: NgbCarousel | undefined;
   discount: Number = 0;
   dateDiscount: string = '';
+  totalReviews: number = 0;
+  rating: Number = 0;
+  reviewsLength: any;
+
+  ngOnInit(): void {
+    this.productsOffers.map(res => {
+      this.reviewsLength = JSON.parse(res.reviews).length
+      this.totalReviews = JSON.parse(res.reviews).reduce((accumulator: number, currentValue: { review: number, comment: string }) => {
+        return accumulator + currentValue.review;
+      }, 0)
+    })
+    this.rating = Math.round(this.totalReviews / this.reviewsLength)
+  }
 
   dataOffer(event: { discount: Number, dateOffer: string }) {
     this.discount = event.discount;
     this.dateDiscount = event.dateOffer;
   }
-
 
   previousCarousel() {
     if (this.carouselView) {
@@ -42,9 +54,5 @@ export class CarouselDealHotComponent {
       this.carouselView.next();
     }
   }
-
-
-
-
 
 }
