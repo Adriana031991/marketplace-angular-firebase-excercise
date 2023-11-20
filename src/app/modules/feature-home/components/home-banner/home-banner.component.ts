@@ -20,7 +20,7 @@ export class HomeBannerComponent {
 
   constructor() {
     effect(() => {
-      this.service.sampleProductLimit()
+      this.service.getSampleProductsLimited()
       this.sampleProductData = this.service.homeBannerData
       this.preload = this.service.preload()
     });

@@ -38,6 +38,15 @@ export class CollectionsFbService {
       )
   }
 
+  public getProductsFilterandLimited$(orderBy: string, subCategory: string, limitToFirst: Number): Observable<IProduct[]> {
+    return this._http.get<IProduct[]>(`${this._url}/products.json?orderBy="${orderBy}"&equalTo="${subCategory}"&limitToFirst=${limitToFirst}&print=pretty`)
+      .pipe(
+        map(res => {
+          return Object.values(res)
+        })
+      )
+  }
+
   public productsLimitData$(startAt: String, limitToFirst: Number): Observable<[string, IProduct][]> {
     return this._http.get<IProduct[]>(`${this._url}/products.json?orderBy="$key"&startAt="${startAt}"&limitToFirst=${limitToFirst}&printy=pretty`)
       .pipe(map((data) => {
@@ -45,13 +54,15 @@ export class CollectionsFbService {
       }))
   }
 
+  // public subcategories = toSignal<ISubCategory[]>(this._http.get<ISubCategory[]>(`${this._url}/sub-categories.json`)
+  //   .pipe(map(res => Object.values(res))), { injector: this._injector })
+
 
   // public disputes = toSignal<IDispute[]>(this._http.get<IDispute[]>(`${this._url}disputes`), { injector: this._injector })
   // public messages = toSignal<IMessage[]>(this._http.get<IMessage[]>(`${this._url}messages`), { injector: this._injector })
   // public orders = toSignal<IOrder[]>(this._http.get<IOrder[]>(`${this._url}orders`), { injector: this._injector })
   // public sales = toSignal<ISale[]>(this._http.get<ISale[]>(`${this._url}sales`), { injector: this._injector })
   // public stores = toSignal<IStore[]>(this._http.get<IStore[]>(`${this._url}stores`), { injector: this._injector })
-  // public subcategories = toSignal<ISubCategory[]>(this._http.get<ISubCategory[]>(`${this._url}sub-categories`), { injector: this._injector })
   // public users = toSignal<IUser[]>(this._http.get<IUser[]>(`${this._url}users`), { injector: this._injector })
 
   // public products = toSignal<IProduct[]>(this.http.get<IProduct[]>('https://fakestoreapi.com/products'));

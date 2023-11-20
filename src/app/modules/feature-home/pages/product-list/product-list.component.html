@@ -1,1 +1,133 @@
-<p>product-list works!</p>
+<!--=====================================
+	Section Gray
+	======================================-->
+
+<div class="ps-section--gray" *ngIf="preload">
+
+    <div class="container">
+
+        <!--=====================================
+			Products of category
+			======================================-->
+
+        <div class="ps-block--products-of-category" *ngFor="let category of categories()">
+
+            <!--=====================================
+				Menu subcategory
+				======================================-->
+
+            <div class="ps-block__categories" *ngIf="category.url == 'health-beauty'">
+
+                <h3>{{category?.name}}</h3>
+                <div *ngFor="let subCategory of subcategories()">
+                    <ul *ngIf="category?.name == subCategory.category">
+                        <li><a [routerLink]="['/products/{{subcategory.url}}']">{{subCategory.subCategory}}</a></li>
+
+                    </ul>
+
+                    <a class="ps-block__more-link" href="#">View All</a>
+
+                </div>
+
+            </div>
+
+            <!--=====================================
+				Vertical Slider Category
+				======================================-->
+
+            <div class="ps-block__slider">
+
+                <div class="ps-carousel--product-box owl-slider" data-owl-auto="true" data-owl-loop="true"
+                    data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1"
+                    data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1"
+                    data-owl-duration="500" data-owl-mousedrag="off">
+
+                    <a href="#">
+
+                        <img src="{{path}}/img/slider/vertical/clothing-1.jpg" alt="">
+
+                    </a>
+
+                    <a href="#">
+
+                        <img src="{{path}}/img/slider/vertical/clothing-2.jpg" alt="">
+
+                    </a>
+
+                    <a href="#">
+
+                        <img src="{{path}}/img/slider/vertical/clothing-3.jpg" alt="">
+
+                    </a>
+
+                </div>
+
+            </div>
+            <!--=====================================
+				Block Product Box
+				======================================-->
+
+            <div class="ps-block__product-box" *ngIf="category.url == 'health-beauty'">
+
+                <!--=====================================
+					Product Simple
+					======================================-->
+                <div *ngFor="let product of productsFilteredByCategory()">
+                    <div class="ps-product ps-product--simple" *ngIf="'health-beauty' == product.category">
+
+                        <div class="ps-product__thumbnail">
+
+                            <a href="product-default.html">
+
+                                <img src="{{path}}/img/products/{{product.category}}/{{product.image}}"
+                                    alt="{{product.name}}">
+
+                            </a>
+
+                            <div class="ps-product__badge">-16%</div>
+
+                        </div>
+
+                        <div class="ps-product__container">
+
+                            <div class="ps-product__content" data-mh="clothing">
+
+                                <a class="ps-product__title" routerLink="/product/{{product.url}}">{{product.name}}</a>
+
+                                <div class="ps-product__rating">
+
+                                    <select class="ps-rating" data-read-only="true">
+
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                        <option value="1">4</option>
+                                        <option value="2">5</option>
+
+                                    </select>
+
+                                    <span>01</span>
+
+                                </div>
+
+                                <p class="ps-product__price sale">${{offer()}} <del>{{product.price}} </del></p>
+
+                            </div>
+
+                        </div>
+
+                    </div> <!-- End Product Simple -->
+                </div>
+            </div><!-- End Block Product Box -->
+
+        </div><!-- End Products of category -->
+
+    </div><!-- End Container-->
+
+    <div *ngIf="!preload" class="d-flex justify-content-center">
+
+        <div class="spinner-border text-muted my-5"></div>
+
+    </div>
+
+</div><!-- End Section Gray-->
