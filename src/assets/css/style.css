@@ -4576,6 +4576,7 @@ input[type=number] {
   padding: 30px 20px 40px 30px;
   background-color: #ffffff;
   max-width: 20%;
+  margin: 0 0 3.5% 0;
 }
 
 .ps-block--products-of-category .ps-block__categories h3 {
@@ -8068,6 +8069,7 @@ input[type=number] {
 
 .ps-carousel--product-box {
   overflow: hidden;
+  height: 93%;
 }
 
 .ps-carousel--product-box .owl-nav {
