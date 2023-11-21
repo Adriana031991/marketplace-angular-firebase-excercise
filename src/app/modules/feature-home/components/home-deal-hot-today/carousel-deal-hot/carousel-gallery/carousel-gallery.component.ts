@@ -23,7 +23,6 @@ export class CarouselGalleryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     if (this.offers?.offer[0] == 'Disccount') {
       this.dataOffer.emit(
         {
@@ -32,9 +31,7 @@ export class CarouselGalleryComponent implements OnInit {
         }
       )
       this.savings = Math.floor(this.offers?.price * parseInt(this.offers?.offer[1]) / 100)
-
     }
-
 
     if (this.offers?.offer[0] == 'Fixed') {
       this.dataOffer.emit({
@@ -44,7 +41,6 @@ export class CarouselGalleryComponent implements OnInit {
       )
       this.savings = Math.floor(parseInt(this.offers?.offer[1]))
     }
-
   }
 
 }

@@ -31,7 +31,14 @@
 
 }
 
+
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
     background-color: #999999ab !important;
+}
+
+
+
+.ps-product .ps-product__rating .visually-hidden {
+    display: none !important;
 }

@@ -98,8 +98,12 @@ export class HomeService {
   getFilterAndLimitedProductsByCategory(orderBy: string, subCategory: string, limitToFirst: Number) {
     this.firebaseCollectionService.getProductsFilterandLimited$(orderBy, subCategory, limitToFirst).pipe(first()).subscribe({
       next: value => {
-        console.log(value);
+        value.map(res => {
+          res.offer = JSON.parse(res.offer);
+          res.reviews = JSON.parse(res.reviews);
 
+        })
+        console.log(value);
         this.productsFilteredByCategory.update((state) => [...state, ...value])
       },
       error: err => {

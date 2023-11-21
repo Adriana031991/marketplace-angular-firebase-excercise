@@ -5,11 +5,13 @@ import { imagen_path } from 'src/environment/config';
 import { HomeService } from '../../services/home.service';
 import { FilterParameters } from 'src/app/shared/models/FilterParameters.enum';
 import { RouterModule } from '@angular/router';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { IProduct } from 'src/app/shared/models/IProduct.interface';
 
 @Component({
   selector: 'marketplace-product-list',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NgbRatingModule],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
@@ -20,6 +22,9 @@ export class ProductListComponent {
   preload = this.service.preloadCategories()
   subcategories = this.service.subcategoriesData
   productsFilteredByCategory = this.service.productsFilteredByCategory
+
+  rating: number = 0;
+
 
   dataSubcategories = computed(() => {
     this.categories().map(category => {
@@ -34,18 +39,31 @@ export class ProductListComponent {
   }
 
   offer = computed(() => {
-    let offer: any
+    let offer: number = 0;
     this.productsFilteredByCategory().map(data => {
-      data.offer = JSON.parse(data.offer)
+
+      this.getRatingData(data);
+
       if (data.offer[0] == 'Disccount') {
-        offer = Math.floor(data.price * parseInt(data.offer[1]) / 100)
+        offer = Math.floor(data.price - (data.price * parseInt(data.offer[1]) / 100))
       }
       if (data.offer[0] == 'Fixed') {
-        offer = Math.floor(data.price - parseInt(data.offer[1]))
+        offer = parseInt(data.offer[1])
       }
 
     })
     return offer
   })
 
+
+  private getRatingData(data: IProduct) {
+
+    let reviewsLength = Array.from(data.reviews).length;
+    let totalReviews = Array.from(data.reviews).reduce((accumulator: number, currentValue: any) => {
+      return accumulator + currentValue.review;
+    }, 0);
+
+    this.rating = Math.round(totalReviews / reviewsLength);
+
+  }
 }

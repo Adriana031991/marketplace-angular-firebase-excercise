@@ -67,9 +67,8 @@ export class CountdownTimerComponent {
     };
     // Creamos la fecha a partir de la fecha en formato string AAAA-MM-dd HH:mm:ss
     this.finishDate = new Date(this.finishDateString);
-    console.log(this.finishDateString);
 
-    this.start().subscribe((_: any) => console.log("tik"));
+    this.start().subscribe((_: any) => console.log(""));
   }
 
   updateTime() {
