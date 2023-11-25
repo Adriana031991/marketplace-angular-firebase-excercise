@@ -19,7 +19,7 @@ import { CarouselGalleryComponent } from './carousel-gallery/carousel-gallery.co
 
 
 export class CarouselDealHotComponent implements OnInit {
-  @Input() path: String = ''
+
   @Input() productsOffers: IProduct[] = []
   @ViewChild('firstCarousel') carouselView: NgbCarousel | undefined;
   discount: Number = 0;

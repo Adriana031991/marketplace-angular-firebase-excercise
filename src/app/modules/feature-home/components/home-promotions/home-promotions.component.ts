@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./home-promotions.component.scss']
 })
 export class HomePromotionsComponent {
-  @Input() path: String = ''
+
   service = inject(HomeService)
   preload: Boolean = true;
 

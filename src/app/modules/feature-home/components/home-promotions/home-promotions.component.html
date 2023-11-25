@@ -6,7 +6,7 @@
 
             <div class="col-md-6 col-12 " *ngFor="let banner of sampleProductData().slice(0,2)">
                 <a class="ps-collection" [routerLink]="['/products/{{banner.url}}']">
-                    <img src="{{path}}/img/products/{{banner.category}}/default/{{banner.default_banner}}"
+                    <img src="assets/img/products/{{banner.category}}/default/{{banner.default_banner}}"
                         alt="{{banner.default_banner}}">
                 </a>
             </div>

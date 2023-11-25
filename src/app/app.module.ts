@@ -7,7 +7,7 @@ import { MarketplaceModule } from './core/components/marketplace.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { HandleErrorsInterceptor } from './core/interceptor/handle-errors.interceptor';
 import { RouterModule } from '@angular/router';
-import { NgbCarousel, NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CoreInterceptor } from './core/interceptor/core.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +23,11 @@ import { NgbCarousel, NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-boot
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: HandleErrorsInterceptor,
+    multi: true,
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: CoreInterceptor,
     multi: true,
   },
 

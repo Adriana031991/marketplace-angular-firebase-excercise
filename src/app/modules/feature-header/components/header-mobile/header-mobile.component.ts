@@ -18,7 +18,7 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class HeaderMobileComponent {
 
-  path: String = imagen_path.url
+
 
   categories: Signal<ICategory[]> = inject(CollectionsFbService).categories
   service = inject(CollectionsFbService)

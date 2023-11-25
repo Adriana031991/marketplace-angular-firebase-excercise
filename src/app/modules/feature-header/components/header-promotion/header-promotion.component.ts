@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderPromotionComponent {
 
-  path: String = imagen_path.url
+
   productos: Signal<IProduct[]> = inject(CollectionsFbService).productsValue;
   dataProducts = computed(() => {
     return this.productos().map((res) => {

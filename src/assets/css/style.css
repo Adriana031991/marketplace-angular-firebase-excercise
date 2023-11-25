@@ -4559,7 +4559,7 @@ input[type=number] {
 }
 
 .ps-block--products-of-category {
-  margin-bottom: 70px;
+  /* margin-bottom: 70px; */
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: horizontal;
@@ -4576,7 +4576,7 @@ input[type=number] {
   padding: 30px 20px 40px 30px;
   background-color: #ffffff;
   max-width: 20%;
-  margin: 0 0 3.5% 0;
+  margin: 0 0 4.5% 0;
 }
 
 .ps-block--products-of-category .ps-block__categories h3 {
@@ -4598,7 +4598,7 @@ input[type=number] {
 
 .ps-block--products-of-category .ps-block__categories .ps-block__more-link {
   position: absolute;
-  bottom: 45px;
+  bottom: 20px;
   left: 30px;
   font-style: italic;
   color: #666;
@@ -4670,11 +4670,11 @@ input[type=number] {
     margin-right: 0;
   }
 
-  .ps-block--products-of-category .ps-block__categories .ps-block__more-link {
+  /* .ps-block--products-of-category .ps-block__categories .ps-block__more-link {
     position: relative;
     bottom: 0;
     left: 0;
-  }
+  } */
 
   .ps-block--products-of-category .ps-block__product-box {
     width: 100%;

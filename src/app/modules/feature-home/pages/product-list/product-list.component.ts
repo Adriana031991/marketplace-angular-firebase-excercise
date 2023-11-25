@@ -16,7 +16,7 @@ import { IProduct } from 'src/app/shared/models/IProduct.interface';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
-  path: string = imagen_path.url
+
   service = inject(HomeService)
   categories = this.service.getCategories
   preload = this.service.preloadCategories()

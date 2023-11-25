@@ -11,7 +11,7 @@ import { imagen_path } from 'src/environment/config';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  path: String = imagen_path.url
+
 
   categories: Signal<ICategory[]> = inject(CollectionsFbService).categories
   service = inject(CollectionsFbService)

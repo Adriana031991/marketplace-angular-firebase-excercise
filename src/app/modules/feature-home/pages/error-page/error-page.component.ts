@@ -10,6 +10,6 @@ import { imagen_path } from 'src/environment/config';
   styleUrls: ['./error-page.component.scss']
 })
 export class ErrorPageComponent {
-  path: String = imagen_path.url
+
 
 }

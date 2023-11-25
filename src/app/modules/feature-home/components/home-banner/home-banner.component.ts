@@ -14,7 +14,7 @@ import { HomeService } from '../../services/home.service';
 })
 export class HomeBannerComponent {
 
-  @Input() path: String = ''
+
   service = inject(HomeService)
   preload: Boolean = true;
 

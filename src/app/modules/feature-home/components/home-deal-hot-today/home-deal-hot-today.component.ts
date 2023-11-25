@@ -14,7 +14,7 @@ import { CarouselTopBestSellerComponent } from './carousel-top-best-seller/carou
 })
 export class HomeDealHotTodayComponent {
 
-  @Input() path: String = ''
+
   service = inject(HomeService)
   preload = computed(() => this.service.preload());
   productOffersData = computed(() => this.service.getProductsToGallery())

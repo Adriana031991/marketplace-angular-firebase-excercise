@@ -12,7 +12,7 @@ import { IProduct } from 'src/app/shared/models/IProduct.interface';
   styleUrls: ['./carousel-gallery.component.scss']
 })
 export class CarouselGalleryComponent implements OnInit {
-  @Input() path: String = ''
+
   @Input() offers: IProduct | undefined;
   @Output() dataOffer = new EventEmitter<{ discount: Number, dateOffer: string }>();
   @ViewChild('secondCarousel') secondCarousel: NgbCarousel | undefined;

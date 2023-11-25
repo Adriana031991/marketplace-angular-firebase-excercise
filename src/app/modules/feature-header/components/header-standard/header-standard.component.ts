@@ -16,7 +16,7 @@ import { first } from 'rxjs';
 })
 export class HeaderStandardComponent {
 
-  path: String = imagen_path.url
+
   categories: Signal<ICategory[]> = inject(CollectionsFbService).categories
   service = inject(CollectionsFbService)
   render: boolean = true

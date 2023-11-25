@@ -9,7 +9,7 @@
         "dist/countdown-timer"
       ]
     },
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,

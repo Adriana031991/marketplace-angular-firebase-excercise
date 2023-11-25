@@ -7,6 +7,6 @@ import { imagen_path } from 'src/environment/config';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  path: String = imagen_path.url
+
 
 }

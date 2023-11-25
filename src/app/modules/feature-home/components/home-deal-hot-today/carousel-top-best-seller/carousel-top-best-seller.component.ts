@@ -12,7 +12,7 @@ import { IProduct } from 'src/app/shared/models/IProduct.interface';
   styleUrls: ['./carousel-top-best-seller.component.scss']
 })
 export class CarouselTopBestSellerComponent {
-  @Input() path: String = ''
+
   @Input() bestSeller: IProduct[] = []
 
 }
