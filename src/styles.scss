@@ -28,6 +28,11 @@
     top: 30% !important;
     margin: 0% 5% 0 5% !important;
     border-radius: 5% !important;
+
+    span {
+        content: none !important;
+
+    }
 }
 
 .carousel-control-prev-icon {
