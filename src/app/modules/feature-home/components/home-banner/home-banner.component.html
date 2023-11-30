@@ -7,19 +7,18 @@
     <ngb-carousel [showNavigationIndicators]="false" [interval]="5000">
 
         <ng-template ngbSlide *ngFor="let slide of sampleProductData()">
-            <div class="ps-banner--market-4"
-                style="background: no-repeat url(assets/img/products/{{slide.category}}/horizontal/{{slide.horizontal_slider[6][1]}});">
+            <div class="ps-banner--market-4">
                 <div class="carousel-caption">
                     <img src="assets/img/products/{{slide.category}}/horizontal/{{slide.horizontal_slider[6][1]}}"
                         alt="">
                     <div class="ps-banner__content">
-                        <h4>{{slide.horizontal_slider[0][1] }} </h4>
+                        <!-- <h4>{{slide.horizontal_slider[0][1] }} </h4>
                         <h3>{{slide.horizontal_slider[1][1] }} <br />
                             {{slide.horizontal_slider[2][1] }} <br />
                             <p>{{slide.horizontal_slider[3][1] }}
                                 <strong> {{slide.horizontal_slider[4][1]}} </strong>
                             </p>
-                        </h3>
+                        </h3> -->
                         <a class="ps-btn"
                             [routerLink]="['/product/{{slide.url}}']">{{slide.horizontal_slider[5][1]}}</a>
                     </div>

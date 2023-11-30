@@ -4576,7 +4576,7 @@ input[type=number] {
   padding: 30px 20px 40px 30px;
   background-color: #ffffff;
   max-width: 20%;
-  margin: 0 0 4.5% 0;
+  /* margin: 0 0 4.5% 0; */
 }
 
 .ps-block--products-of-category .ps-block__categories h3 {
@@ -4605,7 +4605,8 @@ input[type=number] {
 }
 
 .ps-block--products-of-category .ps-block__slider {
-  max-width: 24%;
+  max-width: 20%;
+  max-height: 500px;
 }
 
 .ps-block--products-of-category .ps-block__slider a {
@@ -8592,6 +8593,7 @@ input[type=number] {
 
 .ps-product .ps-product__thumbnail img {
   width: 100%;
+  max-height: 100px;
 }
 
 .ps-product .ps-product__thumbnail .ps-product__actions {

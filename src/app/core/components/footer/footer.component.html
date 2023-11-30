@@ -108,7 +108,7 @@
         <div class="ps-footer__links">
 
             <section *ngFor="let category of categories(); let lastIndex = last">
-                <div class="footer-link">
+                <div class="footer-link" *ngIf="category.name=='Salud y Belleza'">
                     <strong>{{category.name}}</strong>
                     <div *ngFor="let item of newArraySubCategories">
                         <span *ngIf="category.name == item.category ">

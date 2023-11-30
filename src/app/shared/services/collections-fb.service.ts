@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
 import { api_path } from 'src/environment/config';
 import { IProduct } from '../models/IProduct.interface';
-import { Observable, map } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ICategory } from '../models/ICategory.interface';
 import { ISubCategory } from '../models/ISubCategory.interface';
@@ -48,10 +48,13 @@ export class CollectionsFbService {
   }
 
   public productsLimitData$(startAt: String, limitToFirst: Number): Observable<[string, IProduct][]> {
-    return this._http.get<IProduct[]>(`${this._url}/products.json?orderBy="$key"&startAt="${startAt}"&limitToFirst=${limitToFirst}&printy=pretty`)
-      .pipe(map((data) => {
-        return Object.entries(data)
-      }))
+    return this._http.get<IProduct[]>(`${this._url}/products.json?orderBy="category"&startAt="${startAt}"&limitToFirst=${limitToFirst}&printy=pretty`)
+      .pipe(
+
+        map((data) => {
+          return Object.entries(data)
+
+        }))
   }
 
   // public subcategories = toSignal<ISubCategory[]>(this._http.get<ISubCategory[]>(`${this._url}/sub-categories.json`)

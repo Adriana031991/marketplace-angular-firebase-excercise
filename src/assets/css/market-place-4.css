@@ -153,11 +153,11 @@
     min-height: 400px;
   }
 
-  .ps-banner--market-4 img {
+  /* .ps-banner--market-4 img {
     display: none;
     visibility: hidden;
     opacity: 0;
-  }
+  } */
 
   .ps-banner--market-4 .ps-banner__content {
     padding: 0 30px;

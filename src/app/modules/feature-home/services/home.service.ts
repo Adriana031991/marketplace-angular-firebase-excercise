@@ -14,6 +14,7 @@ export class HomeService {
   offerProducts = signal<IProduct[]>([])
   subcategoriesData = signal<ICategoryAndSubcategory[]>([])
   productsFilteredByCategory = signal<IProduct[]>([])
+  healtAndBeautyProducts = signal<IProduct[]>([])
 
   preload = signal<Boolean>(true);
 
@@ -27,12 +28,15 @@ export class HomeService {
   })
 
   getSampleProductsLimited = computed(() => {
-    this.firebaseCollectionService.productsLimitData$(this.indexProductToGetLimitedProducts(), 5).pipe(first()).subscribe({
+    this.firebaseCollectionService.productsLimitData$('Salud', 5).pipe(first()).subscribe({
       next: data => {
         data.map(res => {
           res[1].horizontal_slider = Object.entries(JSON.parse(res[1].horizontal_slider)) as any
+
           this.homeBannerData.update((state) => [...state, res[1]])
+          this.healtAndBeautyProducts.update((state) => [...state, res[1]])
           this.preload.set(false)
+
         })
       },
       error: err => {
@@ -111,5 +115,13 @@ export class HomeService {
       }
     })
   }
+
+  // getHealtAndBeautyData() {
+  //   this.firebaseCollectionService.productsLimitData$('Salud',5).pipe(first()).subscribe({
+  //     next(value) {
+
+  //     },
+  //   })
+  // }
 
 }

@@ -5,13 +5,13 @@ import { imagen_path } from 'src/environment/config';
 import { HomeService } from '../../services/home.service';
 import { FilterParameters } from 'src/app/shared/models/FilterParameters.enum';
 import { RouterModule } from '@angular/router';
-import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { IProduct } from 'src/app/shared/models/IProduct.interface';
 
 @Component({
   selector: 'marketplace-product-list',
   standalone: true,
-  imports: [CommonModule, RouterModule, NgbRatingModule],
+  imports: [CommonModule, RouterModule, NgbRatingModule, NgbCarouselModule],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
@@ -22,7 +22,7 @@ export class ProductListComponent {
   preload = this.service.preloadCategories()
   subcategories = this.service.subcategoriesData
   productsFilteredByCategory = this.service.productsFilteredByCategory
-
+  healtAndBeautyProducts = this.service.healtAndBeautyProducts
   rating: number = 0;
 
 
@@ -35,7 +35,10 @@ export class ProductListComponent {
   })
 
   constructor() {
-    effect(() => this.dataSubcategories())
+    effect(() => {
+      this.dataSubcategories()
+      this.service.getSampleProductsLimited()
+    })
   }
 
   offer = computed(() => {

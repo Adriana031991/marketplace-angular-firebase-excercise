@@ -14,3 +14,14 @@
 .filled.color3 {
     color: #ffc107;
 }
+
+.carousel-caption {
+    position: initial;
+    height: 500px;
+    padding: 0;
+
+    img {
+        max-width: 90%;
+        object-fit: contain;
+    }
+}

@@ -16,7 +16,7 @@
 				Menu subcategory
 				======================================-->
 
-            <div class="ps-block__categories" *ngIf="category.url == 'health-beauty'">
+            <div class="ps-block__categories" *ngIf="category.url == 'Salud-Belleza'">
 
                 <h3>{{category?.name}}</h3>
                 <div *ngFor="let subCategory of subcategories()">
@@ -35,9 +35,20 @@
 				Vertical Slider Category
 				======================================-->
 
-            <div class="ps-block__slider" *ngIf="category.url == 'health-beauty'">
+            <div class="ps-block__slider" *ngIf="category.url == 'Salud-Belleza'">
+                <ngb-carousel [showNavigationIndicators]="false" [interval]="5000">
 
-                <div class="ps-carousel--product-box owl-slider" data-owl-auto="true" data-owl-loop="true"
+                    <ng-template ngbSlide *ngFor="let slide of healtAndBeautyProducts()">
+                        <div class="ps-banner--market-4">
+                            <div class="carousel-caption">
+                                <img src="assets/img/products/{{slide.category}}/vertical/{{slide.vertical_slider}}"
+                                    alt="">
+                            </div>
+                        </div>
+
+                    </ng-template>
+                </ngb-carousel>
+                <!-- <div class="ps-carousel--product-box owl-slider" data-owl-auto="true" data-owl-loop="true"
                     data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1"
                     data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1"
                     data-owl-duration="500" data-owl-mousedrag="off">
@@ -48,32 +59,20 @@
 
                     </a>
 
-                    <a href="#">
-
-                        <img src="assets/img/slider/vertical/clothing-2.jpg" alt="">
-
-                    </a>
-
-                    <a href="#">
-
-                        <img src="assets/img/slider/vertical/clothing-3.jpg" alt="">
-
-                    </a>
-
-                </div>
+                </div> -->
 
             </div>
             <!--=====================================
 				Block Product Box
 				======================================-->
 
-            <div class="ps-block__product-box" *ngIf="category.url == 'health-beauty'">
+            <div class="ps-block__product-box" *ngIf="category.url == 'Salud-Belleza'">
 
                 <!--=====================================
 					Product Simple
 					======================================-->
                 <div *ngFor="let product of productsFilteredByCategory()">
-                    <div class="ps-product ps-product--simple" *ngIf="'health-beauty' == product.category">
+                    <div class="ps-product ps-product--simple" *ngIf="'Salud-Belleza' == product.category">
 
                         <div class="ps-product__thumbnail">
 

@@ -1,4 +1,3 @@
-import { imagen_path } from './../../../../../environment/config';
 import { CommonModule } from '@angular/common';
 import { Component, Signal, computed, effect, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -51,12 +50,14 @@ export class HeaderStandardComponent {
           this.service.filterSubCategory$(FilterParameters.FilterByTitleList, listOfTitle[index]).pipe(first()).subscribe({
             next: arraySubCategories => {
               arraySubCategories.map((res, i) => {
-                let data = {
-                  "titleList": res.title_list,
-                  "subCategory": res.name,
-                  "url": res.url,
+                if (res.category == 'Salud y Belleza') {
+                  let data = {
+                    "titleList": res.title_list,
+                    "subCategory": res.name,
+                    "url": res.url,
+                  }
+                  this.arrayTitleName = [...this.arrayTitleName, data]
                 }
-                this.arrayTitleName = [...this.arrayTitleName, data]
               })
             }
           })

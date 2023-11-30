@@ -17,10 +17,14 @@ export class HeaderPromotionComponent {
 
   productos: Signal<IProduct[]> = inject(CollectionsFbService).productsValue;
   dataProducts = computed(() => {
-    return this.productos().map((res) => {
+    let data: IProduct[] = [];
+    this.productos().map((res) => {
       res.top_banner = Object.entries(JSON.parse(res.top_banner)) as any
-      return res
+      if (res.category == 'Salud-Belleza') {
+        data = [...data, res]
+      }
     });
+    return data;
   })
 
 

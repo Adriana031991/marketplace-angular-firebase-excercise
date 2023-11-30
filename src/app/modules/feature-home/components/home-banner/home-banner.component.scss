@@ -1,7 +1,12 @@
 .carousel-caption {
     position: initial;
     padding-top: 0%;
+
     // padding-bottom: 0%;
+    img {
+        max-width: 90%;
+        object-fit: contain;
+    }
 }
 
 .ps-banner--market-4 .ps-banner__content {
