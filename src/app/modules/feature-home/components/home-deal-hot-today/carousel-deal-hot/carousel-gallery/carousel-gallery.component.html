@@ -1,10 +1,10 @@
-<div class="ps-product__thumbnail" data-vertical="true">
+<div class="ps-product__thumbnail">
 
     <figure>
 
         <div class="ps-wrapper">
 
-            <div class="ps-product__gallery" data-arrow="true">
+            <div class="ps-product__gallery">
 
                 <ngb-carousel #secondCarousel [showNavigationArrows]="false" [showNavigationIndicators]="false"
                     [interval]="3000">
@@ -31,7 +31,7 @@
 
     </figure>
 
-    <div class="ps-product__variants" data-item="4" data-md="3" data-sm="3" data-arrow="false">
+    <div class="ps-product__variants">
 
         <div class="item" *ngFor="let image of offers?.gallery; let i = index" (click)="showImage((i+1).toString())">
             <img src="assets/img/products/{{offers?.category}}/gallery/{{image}}" alt="{{offers?.category}}">

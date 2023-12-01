@@ -19,7 +19,7 @@ export class HomePromotionsComponent {
   constructor() {
     effect(() => {
       this.service.getSampleProductsLimited()
-      this.sampleProductData = this.service.homeBannerData
+      this.sampleProductData = this.service.productsData
       this.preload = this.service.preload()
     });
   }

@@ -29,6 +29,8 @@ export class CarouselDealHotComponent implements OnInit {
   reviewsLength: any;
 
   ngOnInit(): void {
+    console.log(this.productsOffers);
+
     this.productsOffers.map(res => {
       this.reviewsLength = JSON.parse(res.reviews).length
       this.totalReviews = JSON.parse(res.reviews).reduce((accumulator: number, currentValue: { review: number, comment: string }) => {

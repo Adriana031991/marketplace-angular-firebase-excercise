@@ -22,7 +22,7 @@ export class ProductListComponent {
   preload = this.service.preloadCategories()
   subcategories = this.service.subcategoriesData
   productsFilteredByCategory = this.service.productsFilteredByCategory
-  healtAndBeautyProducts = this.service.healtAndBeautyProducts
+  healtAndBeautyProducts = this.service.productsData
   rating: number = 0;
 
 

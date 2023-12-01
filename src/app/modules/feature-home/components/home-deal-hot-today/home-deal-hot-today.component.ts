@@ -17,6 +17,9 @@ export class HomeDealHotTodayComponent {
 
   service = inject(HomeService)
   preload = computed(() => this.service.preload());
-  productOffersData = computed(() => this.service.getProductsToGallery())
+  productOffersData = computed(() => {
+    console.log('pasa ', this.service.getProductsToGallery());
+    return this.service.getProductsToGallery()
+  })
 
 }
