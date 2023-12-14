@@ -1,7 +1,6 @@
 
-import { Component, computed, effect, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { imagen_path } from 'src/environment/config';
 import { HomeService } from '../../services/home.service';
 import { FilterParameters } from 'src/app/shared/models/FilterParameters.enum';
 import { RouterModule } from '@angular/router';

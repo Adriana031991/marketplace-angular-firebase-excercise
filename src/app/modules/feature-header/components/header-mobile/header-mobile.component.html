@@ -66,7 +66,8 @@
                                 <ngb-panel class="ps-list--categories"
                                     *ngFor="let category of categories(); let i = index; let lastIndex = last">
                                     <ng-template ngbPanelTitle>
-                                        <a routerLink="/products/{{category.url}}">{{category.name}}</a>
+                                        <!-- {{'./products/{{category.url}}'}} -->
+                                        <a routerLink="home/products/{{category.url}}">{{category.name}}</a>
                                         <span class="sub-toggle1" (click)="isActive = !isActive">
                                             <i [ngClass]="isActive?'fa fa-angle-down':'fa fa-angle-up'"></i>
                                         </span>
@@ -75,7 +76,7 @@
                                     <ng-template ngbPanelContent>
                                         <ul *ngFor=" let item of newArraySubCategories">
                                             <li class="current-menu-item " *ngIf="category.name == item.category ">
-                                                <a routerLink="/products/{{item.url}}">{{item.subCategory}}</a>
+                                                <a routerLink="home/products/{{item.url}}">{{item.subCategory}}</a>
                                             </li>
 
                                         </ul>
@@ -92,7 +93,7 @@
 
             </div><!-- End menu-->
 
-            <a class="ps-logo pl-3 pl-sm-5" href="">
+            <a class="ps-logo pl-3 pl-sm-5" routerLink="/">
                 <img src="assets/img/logo_esv_cosmetics.png" class="pt-3" alt="">
             </a>
 

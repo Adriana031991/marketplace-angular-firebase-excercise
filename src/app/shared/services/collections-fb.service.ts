@@ -14,29 +14,19 @@ export class CollectionsFbService {
 
   private _url = api_path.url;
 
+  /*=====================================
+  Products
+  ======================================*/
+
   private productsValue$: Observable<IProduct[]> = this._http.get<IProduct[]>(`${this._url}/products.json`)
     .pipe(map((data) => {
       return Object.values(data)
     }))
-  public productsValue = toSignal<IProduct[], IProduct[]>(this.productsValue$, { injector: this._injector, initialValue: [] })
 
   private productsKey$: Observable<String[]> = this._http.get<String[]>(`${this._url}/products.json`)
     .pipe(map((data) => {
       return Object.keys(data)
     }))
-  public productsKey = toSignal<String[], String[]>(this.productsKey$, { injector: this._injector, initialValue: [] })
-
-  public categories = toSignal<ICategory[], ICategory[]>(this._http.get<ICategory[]>(`${this._url}/categories.json`)
-    .pipe(map(res => Object.values(res))), { injector: this._injector, initialValue: [] })
-
-  public filterSubCategory$(orderBy: string, subCategory: string): Observable<ISubCategory[]> {
-    return this._http.get<ISubCategory[]>(`${this._url}/sub-categories.json?orderBy="${orderBy}"&equalTo="${subCategory}"&print=pretty`)
-      .pipe(
-        map(res => {
-          return Object.values(res)
-        })
-      )
-  }
 
   public getProductsFilterandLimited$(orderBy: string, subCategory: string, limitToFirst: Number): Observable<IProduct[]> {
     return this._http.get<IProduct[]>(`${this._url}/products.json?orderBy="${orderBy}"&equalTo="${subCategory}"&limitToFirst=${limitToFirst}&print=pretty`)
@@ -47,15 +37,51 @@ export class CollectionsFbService {
       )
   }
 
-  public productsLimitData$(startAt: String, limitToFirst: Number): Observable<[string, IProduct][]> {
+  public getProductsWithStartAtAndLimitData$(startAt: String, limitToFirst: Number): Observable<[string, IProduct][]> {
     return this._http.get<IProduct[]>(`${this._url}/products.json?orderBy="category"&startAt="${startAt}"&limitToFirst=${limitToFirst}&printy=pretty`)
       .pipe(
-
         map((data) => {
           return Object.entries(data)
-
         }))
   }
+
+  public productsValue = toSignal<IProduct[], IProduct[]>(this.productsValue$, { injector: this._injector, initialValue: [] })
+  public productsKey = toSignal<String[], String[]>(this.productsKey$, { injector: this._injector, initialValue: [] })
+
+
+  /*=====================================
+  Categories
+  ======================================*/
+
+  public categories = toSignal<ICategory[], ICategory[]>(this._http.get<ICategory[]>(`${this._url}/categories.json`)
+    .pipe(map(res => Object.values(res))), { injector: this._injector, initialValue: [] })
+
+
+  public getCategoriesFiltered$(orderBy: string, equalTo: string): Observable<ICategory[]> {
+    return this._http.get<ICategory[]>(`${this._url}/categories.json?orderBy="${orderBy}"&equalTo="${equalTo}"&print=pretty`)
+      .pipe(
+        map(res => {
+          // console.log(equalTo);
+          // console.log(Object.values(res));
+
+          return Object.values(res)
+        })
+      )
+  }
+  /*=====================================
+  Sub-Categories
+  ======================================*/
+
+
+  public filterSubCategory$(orderBy: string, subCategory: string): Observable<ISubCategory[]> {
+    return this._http.get<ISubCategory[]>(`${this._url}/sub-categories.json?orderBy="${orderBy}"&equalTo="${subCategory}"&print=pretty`)
+      .pipe(
+        map(res => {
+          return Object.values(res)
+        })
+      )
+  }
+
 
   // public subcategories = toSignal<ISubCategory[]>(this._http.get<ISubCategory[]>(`${this._url}/sub-categories.json`)
   //   .pipe(map(res => Object.values(res))), { injector: this._injector })

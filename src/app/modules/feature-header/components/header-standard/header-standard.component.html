@@ -14,10 +14,10 @@
 
             <div class="header__left">
                 <ul class="d-flex justify-content-center">
-                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f mr-4"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fab fa-instagram mr-4"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fab fa-twitter mr-4"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fab fa-youtube mr-4"></i></a></li>
+                    <li><a href="" target="_blank"><i class="fab fa-facebook-f mr-4"></i></a></li>
+                    <li><a href="" target="_blank"><i class="fab fa-instagram mr-4"></i></a></li>
+                    <li><a href="" target="_blank"><i class="fab fa-twitter mr-4"></i></a></li>
+                    <li><a href="" target="_blank"><i class="fab fa-youtube mr-4"></i></a></li>
                 </ul>
             </div>
 
@@ -27,13 +27,13 @@
 
             <div class="header__right">
                 <ul class="header__top-links">
-                    <li><a href="#">Tienda</a></li>
+                    <li><a href="">Tienda</a></li>
                     <li><i class="icon-telephone"></i> Linea:<strong> 01-800-999-888</strong></li>
                     <li>
                         <div class="ps-dropdown language"><a href=""><img src="assets/img/template/es.png"
                                     alt="">Español</a>
                             <ul class="ps-dropdown-menu">
-                                <li><a href="#"><img src="assets/img/template/en.png" alt=""> English</a></li>
+                                <li><a href=""><img src="assets/img/template/en.png" alt=""> English</a></li>
                             </ul>
                         </div>
                     </li>
@@ -58,7 +58,7 @@
                 Logo
                 ======================================-->
 
-                <a class="ps-logo" href="index.html">
+                <a class="ps-logo" routerLink="/">
                     <img src="assets/img/logo_esv_cosmetics.png" alt="">
                 </a>
 
@@ -70,7 +70,7 @@
 
                     <div class="menu__toggle">
                         <i class="icon-menu"></i>
-                        <span> compra por departamento</span>
+                        <span> Compra por departamento</span>
                     </div>
 
                     <div class="menu__content">
@@ -78,8 +78,8 @@
 
                             <li *ngFor="let category of categories(); let i = index; let lastIndex = index"
                                 class="menu-item-has-children has-mega-menu">
-                                <a *ngIf="category.name=='Salud y Belleza'" routerLink="/products/{{category.url}}"
-                                    routerLinkActive="router-link-active">
+                                <a *ngIf="category.name=='Salud y Belleza'">
+                                    <!-- routerLink="/home/products/{{category.url}}" -->
                                     <i class="{{category.icon}}"></i>
                                     {{category.name}}</a>
                                 <div class="mega-menu">
@@ -91,8 +91,7 @@
                                         <ul class="mega-menu__list">
                                             <div *ngFor="let item of arrayTitleName">
                                                 <li *ngIf="title == item.titleList">
-                                                    <a routerLink="/products/{{item.url}}"
-                                                        routerLinkActive="router-link-active">{{item.subCategory}}</a>
+                                                    <a routerLink="/home/products/{{item.url}}">{{item.subCategory}}</a>
                                                 </li>
 
                                             </div>
@@ -117,8 +116,8 @@
             <div class="header__content-center">
                 <form class="ps-form--quick-search">
 
-                    <input class="form-control" type="text" placeholder="I'm shopping for...">
-                    <button>Search</button>
+                    <input class="form-control" type="text" placeholder="Buscar">
+                    <button>Buscar</button>
                 </form>
             </div>
 
@@ -130,7 +129,7 @@
                     Wishlist
                     ======================================-->
 
-                    <a class="header__extra" href="#">
+                    <a class="header__extra" href="">
                         <i class="icon-heart"></i><span><i>0</i></span>
                     </a>
 
@@ -140,7 +139,7 @@
 
                     <div class="ps-cart--mini">
 
-                        <a class="header__extra" href="#">
+                        <a class="header__extra" href="">
                             <i class="icon-bag2"></i><span><i>0</i></span>
                         </a>
 

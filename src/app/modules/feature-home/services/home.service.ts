@@ -27,7 +27,7 @@ export class HomeService {
   })
 
   getSampleProductsLimited = computed(() => {
-    this.firebaseCollectionService.productsLimitData$('Salud', 5).pipe(first()).subscribe({
+    this.firebaseCollectionService.getProductsWithStartAtAndLimitData$('Salud', 5).pipe(first()).subscribe({
       next: data => {
         data.map(res => {
           res[1].horizontal_slider = Object.entries(JSON.parse(res[1].horizontal_slider)) as any

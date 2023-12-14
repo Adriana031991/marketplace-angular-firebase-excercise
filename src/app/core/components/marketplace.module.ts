@@ -9,11 +9,6 @@ import { HeaderMobileComponent } from 'src/app/modules/feature-header/components
 import { HeaderPromotionComponent } from 'src/app/modules/feature-header/components/header-promotion/header-promotion.component';
 import { NewletterComponent } from 'src/app/modules/feature-newletter/components/newletter/newletter.component';
 import { HeaderStandardComponent } from 'src/app/modules/feature-header/components/header-standard/header-standard.component';
-import { HomeComponent } from './home/home.component';
-import { HomeBannerComponent } from 'src/app/modules/feature-home/components/home-banner/home-banner.component';
-import { HomeCaracteristicsComponent } from 'src/app/modules/feature-home/components/home-caracteristics/home-caracteristics.component';
-import { HomePromotionsComponent } from 'src/app/modules/feature-home/components/home-promotions/home-promotions.component';
-import { HomeDealHotTodayComponent } from 'src/app/modules/feature-home/components/home-deal-hot-today/home-deal-hot-today.component';
 
 
 
@@ -22,8 +17,7 @@ import { HomeDealHotTodayComponent } from 'src/app/modules/feature-home/componen
   declarations: [
     HeaderComponent,
     FooterComponent,
-    MarketplaceComponent,
-    HomeComponent
+    MarketplaceComponent
   ],
   imports: [
     CommonModule,
@@ -31,12 +25,7 @@ import { HomeDealHotTodayComponent } from 'src/app/modules/feature-home/componen
     HeaderMobileComponent,
     HeaderPromotionComponent,
     NewletterComponent,
-    HeaderStandardComponent,
-    HomeBannerComponent,
-    HomeCaracteristicsComponent,
-    HomePromotionsComponent,
-    HomeDealHotTodayComponent
-
+    HeaderStandardComponent
   ]
 })
 export class MarketplaceModule { }
