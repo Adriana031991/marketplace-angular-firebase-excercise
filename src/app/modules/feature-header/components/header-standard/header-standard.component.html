@@ -78,8 +78,8 @@
 
                             <li *ngFor="let category of categories(); let i = index; let lastIndex = index"
                                 class="menu-item-has-children has-mega-menu">
-                                <a *ngIf="category.name=='Salud y Belleza'">
-                                    <!-- routerLink="/home/products/{{category.url}}" -->
+                                <a *ngIf="category.name=='Salud y Belleza'"
+                                    routerLink="/home/products/{{category.url}}">
                                     <i class="{{category.icon}}"></i>
                                     {{category.name}}</a>
                                 <div class="mega-menu">

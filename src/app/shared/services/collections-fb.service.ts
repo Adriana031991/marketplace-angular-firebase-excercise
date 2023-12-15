@@ -28,6 +28,14 @@ export class CollectionsFbService {
       return Object.keys(data)
     }))
 
+  public getProductsFiltered$(orderBy: string, subCategory: string): Observable<IProduct[]> {
+    return this._http.get<IProduct[]>(`${this._url}/products.json?orderBy="${orderBy}"&equalTo="${subCategory}"&print=pretty`)
+      .pipe(
+        map(res => {
+          return Object.values(res)
+        })
+      )
+  }
   public getProductsFilterandLimited$(orderBy: string, subCategory: string, limitToFirst: Number): Observable<IProduct[]> {
     return this._http.get<IProduct[]>(`${this._url}/products.json?orderBy="${orderBy}"&equalTo="${subCategory}"&limitToFirst=${limitToFirst}&print=pretty`)
       .pipe(

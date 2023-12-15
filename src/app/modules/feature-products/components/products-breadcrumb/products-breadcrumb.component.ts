@@ -14,26 +14,34 @@ import { first, switchMap, tap } from 'rxjs';
 })
 
 export class ProductsBreadcrumbComponent implements OnInit {
-  activateRoute = inject(ActivatedRoute)
+  private _activateRoute = inject(ActivatedRoute)
   private _service = inject(ProductsService)
   breadcrumb: string = ''
 
   ngOnInit(): void {
+    let parameter = '';
     let component = this;
-    this.activateRoute.params
+    this._activateRoute.params
       .pipe(
+        tap(data => parameter = data['param']),
         switchMap(({ param }) =>
 
-          // component._service.getCategoryName$(FilterParameters.FilterByurl, param)
-          component._service.getSubCategoryName$(FilterParameters.FilterByurl, param)
+          component._service.getCategoryName$(FilterParameters.FilterByurl, param)
 
         ),
-        first()
       )
       .subscribe({
         next(value) {
 
-          component.breadcrumb = value
+          (value) ?
+            component.breadcrumb = value
+            :
+            component._service.getSubCategoryName$(FilterParameters.FilterByurl, parameter).subscribe({
+              next(name) {
+                component.breadcrumb = name
+              }
+            })
+
         },
       })
 

@@ -10,6 +10,7 @@ export interface IProduct {
     url: string;
     image: string;
     price: number;
+    sales: number;
     shipping: number;
     stock: number;
     delivery_time: string;

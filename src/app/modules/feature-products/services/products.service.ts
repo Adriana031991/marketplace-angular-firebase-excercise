@@ -1,5 +1,5 @@
 import { Injectable, Injector, inject } from '@angular/core';
-import { EMPTY, Observable, catchError, map, of, retry } from 'rxjs';
+import { EMPTY, Observable, catchError, map, of, retry, tap } from 'rxjs';
 import { CollectionsFbService } from 'src/app/shared/services/collections-fb.service';
 
 @Injectable({
@@ -55,6 +55,18 @@ export class ProductsService {
         return EMPTY;
       })
     );
+  }
+
+  getProductsFiltered$(orderBy: string, equalTo: string) {
+    return this._firebaseCollectionService.getProductsFiltered$(orderBy, equalTo).pipe(
+      tap(
+        // res => console.log(res)
+
+      ),
+      map(res => {
+        return res.sort((a, b) => b.sales - a.sales).slice(0, 10)
+      })
+    )
   }
 
 }
