@@ -22,8 +22,6 @@ export class ProductsBreadcrumbComponent implements OnInit {
     let component = this;
     this.activateRoute.params
       .pipe(
-        tap((value) => console.log(value)
-        ),
         switchMap(({ param }) =>
 
           // component._service.getCategoryName$(FilterParameters.FilterByurl, param)

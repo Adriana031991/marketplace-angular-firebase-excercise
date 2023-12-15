@@ -61,9 +61,6 @@ export class CollectionsFbService {
     return this._http.get<ICategory[]>(`${this._url}/categories.json?orderBy="${orderBy}"&equalTo="${equalTo}"&print=pretty`)
       .pipe(
         map(res => {
-          // console.log(equalTo);
-          // console.log(Object.values(res));
-
           return Object.values(res)
         })
       )

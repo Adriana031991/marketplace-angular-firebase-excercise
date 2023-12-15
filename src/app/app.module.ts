@@ -8,6 +8,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { HandleErrorsInterceptor } from './core/interceptor/handle-errors.interceptor';
 import { RouterModule } from '@angular/router';
 import { CoreInterceptor } from './core/interceptor/core.interceptor';
+
+
 @NgModule({
   declarations: [
     AppComponent,
