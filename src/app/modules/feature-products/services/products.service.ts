@@ -17,13 +17,7 @@ export class ProductsService {
   getCategoryName$(orderBy: string, equalTo: string): Observable<string> {
     return this._firebaseCollectionService.getCategoriesFiltered$(orderBy, equalTo).pipe(
       map(categories => {
-        let name = ''
-        categories.filter(res => {
-          if (res.url == equalTo) {
-            name = res.name;
-          }
-        });
-        return name
+        return categories.find(res => res.url == equalTo)?.name as string
 
       }),
       catchError(error => {
@@ -41,13 +35,7 @@ export class ProductsService {
   getSubCategoryName$(orderBy: string, equalTo: string): Observable<string> {
     return this._firebaseCollectionService.filterSubCategory$(orderBy, equalTo).pipe(
       map(subcategories => {
-        let name = ''
-        subcategories.filter(res => {
-          if (res.url == equalTo) {
-            name = res.name;
-          }
-        });
-        return name
+        return subcategories.find(res => res.url == equalTo)?.name as string
 
       }),
       catchError(error => {

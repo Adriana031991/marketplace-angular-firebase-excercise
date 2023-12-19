@@ -20,7 +20,13 @@ export class CollectionsFbService {
 
   private productsValue$: Observable<IProduct[]> = this._http.get<IProduct[]>(`${this._url}/products.json`)
     .pipe(map((data) => {
-      return Object.values(data)
+      let res = Object.values(data)
+      res.map(r => {
+        r.reviews = JSON.parse(r.reviews)
+
+        return r
+      })
+      return res;
     }))
 
   private productsKey$: Observable<String[]> = this._http.get<String[]>(`${this._url}/products.json`)
@@ -31,16 +37,31 @@ export class CollectionsFbService {
   public getProductsFiltered$(orderBy: string, subCategory: string): Observable<IProduct[]> {
     return this._http.get<IProduct[]>(`${this._url}/products.json?orderBy="${orderBy}"&equalTo="${subCategory}"&print=pretty`)
       .pipe(
-        map(res => {
-          return Object.values(res)
+        map(data => {
+          let res = Object.values(data)
+          res.map(r => {
+            r.reviews = JSON.parse(r.reviews)
+
+            return r
+          })
+          // console.log(res);
+
+          return res;
         })
       )
   }
   public getProductsFilterandLimited$(orderBy: string, subCategory: string, limitToFirst: Number): Observable<IProduct[]> {
     return this._http.get<IProduct[]>(`${this._url}/products.json?orderBy="${orderBy}"&equalTo="${subCategory}"&limitToFirst=${limitToFirst}&print=pretty`)
       .pipe(
-        map(res => {
-          return Object.values(res)
+        map(data => {
+          let res = Object.values(data)
+          res.map(r => {
+            r.reviews = JSON.parse(r.reviews)
+
+            return r
+          })
+          // console.log(res);
+          return res;
         })
       )
   }
@@ -49,7 +70,17 @@ export class CollectionsFbService {
     return this._http.get<IProduct[]>(`${this._url}/products.json?orderBy="category"&startAt="${startAt}"&limitToFirst=${limitToFirst}&printy=pretty`)
       .pipe(
         map((data) => {
-          return Object.entries(data)
+          // return Object.entries(data)
+          let res = Object.entries(data)
+          console.log(res);
+          res.map(r => {
+            console.log(r);
+
+            // r.reviews = JSON.parse(r.reviews)
+
+            return r
+          })
+          return res;
         }))
   }
 

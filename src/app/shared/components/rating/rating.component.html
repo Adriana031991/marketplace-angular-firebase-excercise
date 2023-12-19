@@ -1,0 +1,6 @@
+<div class="rating">
+    <ng-container *ngFor="let star of stars; index as i">
+        <i class="fa-regular fa-star" [ngClass]="{'checked': (rating > i)}" (click)="rate(i+1)"></i>
+    </ng-container>
+    <p class="label">{{rating}}</p>
+</div>

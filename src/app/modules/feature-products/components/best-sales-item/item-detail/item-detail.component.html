@@ -43,7 +43,8 @@
             <a class="ps-product__title" routerLink="product/{{product.url}}">
                 {{product.name}}</a>
 
-            <div class="ps-product__rating">
+            <marketplace-rating [product]="product"></marketplace-rating>
+            <!-- <div class="ps-product__rating">
 
                 <select class="ps-rating" data-read-only="true">
 
@@ -56,7 +57,7 @@
 
                 <span>01</span>
 
-            </div>
+            </div> -->
 
             <p class="ps-product__price">$22.99 - $32.99</p>
 

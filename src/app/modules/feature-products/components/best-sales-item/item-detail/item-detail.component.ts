@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { RatingComponent } from 'src/app/shared/components/rating/rating.component';
 import { IProduct } from 'src/app/shared/models/IProduct.interface';
 
 @Component({
   selector: 'marketplace-item-detail',
   standalone: true,
   imports: [
-    CommonModule, RouterModule
+    CommonModule, RouterModule, RatingComponent
   ],
   templateUrl: './item-detail.component.html',
   styleUrls: ['./item-detail.component.css'],
@@ -16,6 +17,6 @@ import { IProduct } from 'src/app/shared/models/IProduct.interface';
 export class ItemDetailComponent {
 
   @Input() products: IProduct[] = []
-  @Input() product?: IProduct;
+  // @Input() product?: IProduct;
 
 }
