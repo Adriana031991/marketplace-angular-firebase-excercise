@@ -19,7 +19,7 @@ export class HeaderPromotionComponent {
   dataProducts = computed(() => {
     let data: IProduct[] = [];
     this.productos().map((res) => {
-      res.top_banner = Object.entries(JSON.parse(res.top_banner)) as any
+      // res.top_banner = Object.entries(JSON.parse(res.top_banner)) as any
       if (res.category == 'Salud-Belleza') {
         data = [...data, res]
       }

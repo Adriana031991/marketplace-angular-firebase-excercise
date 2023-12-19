@@ -32,7 +32,7 @@ export class HeaderMobileComponent {
   })
 
   isActive = true;
-
+  isOpenMenu = false;
 
   /**
    * 

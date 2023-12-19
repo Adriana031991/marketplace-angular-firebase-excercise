@@ -30,12 +30,11 @@ export class HomeService {
     this.firebaseCollectionService.getProductsWithStartAtAndLimitData$('Salud', 5).pipe(first()).subscribe({
       next: data => {
         data.map(res => {
-          res[1].horizontal_slider = Object.entries(JSON.parse(res[1].horizontal_slider)) as any
-
           this.productsData.update((state) => [...state, res[1]])
           this.preload.set(false)
-
         })
+        // console.log(data);
+
       },
       error: err => {
         console.log(err);
@@ -49,12 +48,13 @@ export class HomeService {
       const regEx = /^(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))$/
       // TODO: PENDIENTE QUITAR EL STRING DE LA CONST TODAY PARA QUE TOME LA FECHA ACTUAL
       const today = new Date('2020-06-29')
+
       console.log(res);
 
       if (res) {
 
-        res.offer = JSON.parse(res.offer);
-        res.gallery = JSON.parse(res.gallery);
+        // res.offer = JSON.parse(res.offer);
+        // res.gallery = JSON.parse(res.gallery);
 
         if (regEx.test(res.offer[2])) {
           let offerDate = new Date(
@@ -106,11 +106,6 @@ export class HomeService {
   getFilterAndLimitedProductsByCategory(orderBy: string, subCategory: string, limitToFirst: Number) {
     this.firebaseCollectionService.getProductsFilterandLimited$(orderBy, subCategory, limitToFirst).pipe(first()).subscribe({
       next: value => {
-        value.map(res => {
-          res.offer = JSON.parse(res.offer);
-          res.reviews = JSON.parse(res.reviews);
-
-        })
         // console.log(value);
         this.productsFilteredByCategory.update((state) => [...state, ...value])
       },
@@ -120,12 +115,5 @@ export class HomeService {
     })
   }
 
-  // getHealtAndBeautyData() {
-  //   this.firebaseCollectionService.productsLimitData$('Salud',5).pipe(first()).subscribe({
-  //     next(value) {
-
-  //     },
-  //   })
-  // }
 
 }

@@ -8,7 +8,7 @@ import { CollectionsFbService } from 'src/app/shared/services/collections-fb.ser
 export class ProductsService {
 
   private _firebaseCollectionService = inject(CollectionsFbService)
-  private _injector = inject(Injector)
+  // private _injector = inject(Injector)
 
   getCategories = this._firebaseCollectionService.categories
 

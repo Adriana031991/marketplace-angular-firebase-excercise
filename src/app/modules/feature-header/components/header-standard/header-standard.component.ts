@@ -24,13 +24,14 @@ export class HeaderStandardComponent {
 
   categoryNames: Signal<string[]> = computed(() => {
     return this.categories().map(value => {
-      return JSON.parse(value.title_list)
+      return value.title_list
     })
   })
 
   subCategory = computed(() => {
     return this.categories().map(value => {
-      return JSON.parse(value.title_list).map((element: any) => element) as String;
+      let data = value.title_list as unknown as Array<String>;
+      return data.map((element: any) => element);
 
     })
   })

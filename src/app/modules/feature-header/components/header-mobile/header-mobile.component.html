@@ -50,14 +50,15 @@
 
             <div class="menu--product-categories">
 
-                <div class="ps-shop__filter-mb mt-4">
+                <div class="ps-shop__filter-mb mt-4" (click)="isOpenMenu = !isOpenMenu">
                     <i class="icon-menu "></i>
                 </div>
 
-                <div class="ps-filter--sidebar">
+                <div class="ps-filter--sidebar active" *ngIf="isOpenMenu">
 
                     <div class="ps-filter__header">
-                        <h3>Categorias</h3><a class="ps-btn--close ps-btn--no-boder" href=""></a>
+                        <h3>Categorias</h3>
+                        <button class="ps-btn--close ps-btn--no-boder" (click)="isOpenMenu = !isOpenMenu"></button>
                     </div>
 
                     <div class="ps-filter__content">
@@ -65,9 +66,10 @@
                             <ngb-accordion #acc="ngbAccordion">
                                 <ngb-panel class="ps-list--categories"
                                     *ngFor="let category of categories(); let i = index; let lastIndex = last">
-                                    <ng-template ngbPanelTitle>
+
+                                    <ng-template ngbPanelTitle *ngIf="category.name === 'Salud y Belleza'">
                                         <!-- {{'./products/{{category.url}}'}} -->
-                                        <a routerLink="home/products/{{category.url}}">{{category.name}}</a>
+                                        <a routerLink="products/{{category.url}}">{{category.name}}</a>
                                         <span class="sub-toggle1" (click)="isActive = !isActive">
                                             <i [ngClass]="isActive?'fa fa-angle-down':'fa fa-angle-up'"></i>
                                         </span>
@@ -76,12 +78,13 @@
                                     <ng-template ngbPanelContent>
                                         <ul *ngFor=" let item of newArraySubCategories">
                                             <li class="current-menu-item " *ngIf="category.name == item.category ">
-                                                <a routerLink="home/products/{{item.url}}">{{item.subCategory}}</a>
+                                                <a routerLink="products/{{item.url}}">{{item.subCategory}}</a>
                                             </li>
 
                                         </ul>
                                     </ng-template>
                                     {{lastIndex ? callback():''}}
+
                                 </ngb-panel>
                             </ngb-accordion>
 
@@ -94,7 +97,7 @@
             </div><!-- End menu-->
 
             <a class="ps-logo pl-3 pl-sm-5" routerLink="/">
-                <img src="assets/img/logo_esv_cosmetics.png" class="pt-3" alt="">
+                <img src="assets/img/logo_esv_cosmetics.png" class="pt-2" alt="Logo ESV-cosmetics">
             </a>
 
         </div>

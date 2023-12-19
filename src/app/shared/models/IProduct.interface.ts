@@ -25,4 +25,5 @@ export interface IProduct {
     horizontal_slider: string;
     vertical_slider: string;
     reviews: string;
+    summary: string;
 }
