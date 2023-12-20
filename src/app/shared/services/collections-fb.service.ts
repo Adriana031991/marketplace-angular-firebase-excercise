@@ -119,6 +119,31 @@ export class CollectionsFbService {
 
   public productsValue = toSignal<IProduct[], IProduct[]>(this.productsValue$, { injector: this._injector, initialValue: [] })
   public productsKey = toSignal<String[], String[]>(this.productsKey$, { injector: this._injector, initialValue: [] })
+  public getProductsWithStartAtAndLimitData(startAt: String, limitToFirst: Number) {
+    return toSignal<[string, IProduct][], [string, IProduct][]>(
+      this._http.get<IProduct[]>(`${this._url}/products.json?orderBy="category"&startAt="${startAt}"&limitToFirst=${limitToFirst}&printy=pretty`)
+        .pipe(
+          map((data) => {
+            let res = Object.entries(data)
+            console.log(res);
+            res.map(r => {
+              r[1].horizontal_slider = Object.entries(JSON.parse(r[1].horizontal_slider)) as any
+              r[1].offer = JSON.parse(r[1].offer)
+              r[1].gallery = JSON.parse(r[1].gallery)
+              r[1].reviews = JSON.parse(r[1].reviews)
+              r[1].specification = JSON.parse(r[1].specification)
+              r[1].details = JSON.parse(r[1].details)
+              r[1].tags = JSON.parse(r[1].tags)
+              r[1].video = JSON.parse(r[1].video)
+              r[1].summary = JSON.parse(r[1].summary)
+              r[1].top_banner = Object.entries(JSON.parse(r[1].top_banner)) as any
+
+              return r
+            })
+            console.log(res);
+            return res;
+          })), { injector: this._injector, initialValue: [] })
+  }
 
 
   /*=====================================

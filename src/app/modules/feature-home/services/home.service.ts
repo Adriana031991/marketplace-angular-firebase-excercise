@@ -20,27 +20,38 @@ export class HomeService {
   preloadOffers = computed(() => (this.getProductsToGallery().length === 0) ? true : false)
   preloadCategories = computed(() => (this.getCategories().length === 0) ? true : false)
 
+  getSampleProductsLimited = computed(() => {
+    let products = this.firebaseCollectionService.getProductsWithStartAtAndLimitData('Salud', 5)()
+    products.map(r => {
+      this.productsData.update((state) => [...state, r[1]])
+      this.preload.set(false)
+
+    })
+
+
+  })
+
   indexProductToGetLimitedProducts = computed(() => {
     let productsKey = this.firebaseCollectionService.productsKey()
     let indexProduct = Math.floor(Math.random() * (productsKey.length - 5))
     return productsKey[indexProduct]
   })
 
-  getSampleProductsLimited = computed(() => {
-    this.firebaseCollectionService.getProductsWithStartAtAndLimitData$('Salud', 5).pipe(first()).subscribe({
-      next: data => {
-        data.map(res => {
-          this.productsData.update((state) => [...state, res[1]])
-          this.preload.set(false)
-        })
-        // console.log(data);
+  // getSampleProductsLimited = computed(() => {
+  //   this.firebaseCollectionService.getProductsWithStartAtAndLimitData$('Salud', 5).subscribe({
+  //     next: data => {
+  //       data.map(res => {
+  //         this.productsData.update((state) => [...state, res[1]])
+  //         this.preload.set(false)
+  //       })
+  //       // console.log(data);
 
-      },
-      error: err => {
-        console.log(err);
-      }
-    })
-  })
+  //     },
+  //     error: err => {
+  //       console.log(err);
+  //     }
+  //   })
+  // })
 
   getProductsToGallery = computed(() => {
     let offerProducts: IProduct[] = []
