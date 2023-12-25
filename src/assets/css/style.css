@@ -4606,7 +4606,8 @@ input[type=number] {
 
 .ps-block--products-of-category .ps-block__slider {
   max-width: 20%;
-  max-height: 500px;
+  /* max-height: 500px; */
+  /* position: relative; */
 }
 
 .ps-block--products-of-category .ps-block__slider a {
@@ -8439,7 +8440,7 @@ input[type=number] {
 
 .ps-product {
   position: relative;
-  padding: 20px 20px 0;
+  padding: 20px 20px 5px;
   border: 1px solid transparent;
   border-bottom: none;
 }

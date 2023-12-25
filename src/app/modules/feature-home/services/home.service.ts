@@ -1,5 +1,4 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
-import { first } from 'rxjs';
 import { ICategory, ICategoryAndSubcategory } from 'src/app/shared/models/ICategory.interface';
 import { IProduct } from 'src/app/shared/models/IProduct.interface';
 import { CollectionsFbService } from 'src/app/shared/services/collections-fb.service';
@@ -20,16 +19,7 @@ export class HomeService {
   preloadOffers = computed(() => (this.getProductsToGallery().length === 0) ? true : false)
   preloadCategories = computed(() => (this.getCategories().length === 0) ? true : false)
 
-  getSampleProductsLimited = computed(() => {
-    let products = this.firebaseCollectionService.getProductsWithStartAtAndLimitData('Salud', 5)()
-    products.map(r => {
-      this.productsData.update((state) => [...state, r[1]])
-      this.preload.set(false)
 
-    })
-
-
-  })
 
   indexProductToGetLimitedProducts = computed(() => {
     let productsKey = this.firebaseCollectionService.productsKey()
@@ -37,21 +27,21 @@ export class HomeService {
     return productsKey[indexProduct]
   })
 
-  // getSampleProductsLimited = computed(() => {
-  //   this.firebaseCollectionService.getProductsWithStartAtAndLimitData$('Salud', 5).subscribe({
-  //     next: data => {
-  //       data.map(res => {
-  //         this.productsData.update((state) => [...state, res[1]])
-  //         this.preload.set(false)
-  //       })
-  //       // console.log(data);
+  getSampleProductsLimited = computed(() => {
+    this.firebaseCollectionService.getProductsWithStartAtAndLimitData$('Salud', 5).subscribe({
+      next: data => {
+        data.map(res => {
+          this.productsData.update((state) => [...state, res[1]])
+          this.preload.set(false)
+        })
+        // console.log(data);
 
-  //     },
-  //     error: err => {
-  //       console.log(err);
-  //     }
-  //   })
-  // })
+      },
+      error: err => {
+        console.log(err);
+      }
+    })
+  })
 
   getProductsToGallery = computed(() => {
     let offerProducts: IProduct[] = []
@@ -97,7 +87,7 @@ export class HomeService {
   })
 
   getSubCategories(orderBy: string, subCategory: string) {
-    this.firebaseCollectionService.filterSubCategory$(orderBy, subCategory).pipe(first()).subscribe({
+    this.firebaseCollectionService.filterSubCategory$(orderBy, subCategory).subscribe({
       next: value => {
         value.map(data => {
           let newData = {
@@ -115,7 +105,7 @@ export class HomeService {
   }
 
   getFilterAndLimitedProductsByCategory(orderBy: string, subCategory: string, limitToFirst: Number) {
-    this.firebaseCollectionService.getProductsFilterandLimited$(orderBy, subCategory, limitToFirst).pipe(first()).subscribe({
+    this.firebaseCollectionService.getProductsFilterandLimited$(orderBy, subCategory, limitToFirst).subscribe({
       next: value => {
         // console.log(value);
         this.productsFilteredByCategory.update((state) => [...state, ...value])

@@ -42,7 +42,7 @@
                         <div class="ps-banner--market-4">
                             <div class="carousel-caption">
                                 <img src="assets/img/products/{{slide.category}}/vertical/{{slide.vertical_slider}}"
-                                    alt="">
+                                    alt="{{slide.vertical_slider}}">
                             </div>
                         </div>
 
@@ -93,25 +93,11 @@
 
                                 <a class="ps-product__title" routerLink="/product/{{product.url}}">{{product.name}}</a>
                                 <div class="ps-product__rating ">
-                                    <!-- <ngb-rating class="ps-rating" [max]="5" [(rate)]="rating" [disabled]="true">
-                                        <ng-template let-fill="fill" let-index="index">
-                                            <span class="bi-star{{fill === 100 ? '-fill' : ''}}"
-                                                [class.filled]="fill === 100"></span>
-                                        </ng-template>
-                                    </ngb-rating> -->
-                                    <ngb-rating [rate]="rating" [max]=5 [readonly]=true>
-                                        <ng-template let-fill="fill">
-                                            <span [ngClass]="'color'+rating"
-                                                [class.filled]="fill === 100">&#9733;</span>
-                                        </ng-template>
-                                    </ngb-rating>
-                                    <span>{{rating}}</span>
-                                </div>
-                                <!-- <div class="ps-product__rating">
-                                    <div class="mb-3 ps-rating">
 
-                                        <select class="ps-rating" data-read-only="true">
- -->
+                                    <marketplace-rating [product]="product"></marketplace-rating>
+
+                                </div>
+
                                 <p class="ps-product__price sale">${{offer()}} <del>{{product.price}} </del></p>
 
                             </div>

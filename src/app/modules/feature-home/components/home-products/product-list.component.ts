@@ -6,11 +6,12 @@ import { FilterParameters } from 'src/app/shared/models/FilterParameters.enum';
 import { RouterModule } from '@angular/router';
 import { NgbCarouselModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { IProduct } from 'src/app/shared/models/IProduct.interface';
+import { RatingComponent } from 'src/app/shared/components/rating/rating.component';
 
 @Component({
   selector: 'marketplace-product-list',
   standalone: true,
-  imports: [CommonModule, RouterModule, NgbRatingModule, NgbCarouselModule],
+  imports: [CommonModule, RouterModule, RatingComponent, NgbRatingModule, NgbCarouselModule],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
@@ -22,7 +23,7 @@ export class ProductListComponent {
   subcategories = this.service.subcategoriesData
   productsFilteredByCategory = this.service.productsFilteredByCategory
   healtAndBeautyProducts = this.service.productsData
-  rating: number = 0;
+
 
 
   dataSubcategories = computed(() => {
@@ -37,6 +38,7 @@ export class ProductListComponent {
     effect(() => {
       this.dataSubcategories()
       this.service.getSampleProductsLimited()
+
     })
   }
 
@@ -44,7 +46,6 @@ export class ProductListComponent {
     let offer: number = 0;
     this.productsFilteredByCategory().map(data => {
 
-      this.getRatingData(data);
 
       if (data.offer[0] == 'Disccount') {
         offer = Math.floor(data.price - (data.price * parseInt(data.offer[1]) / 100))
@@ -58,14 +59,5 @@ export class ProductListComponent {
   })
 
 
-  private getRatingData(data: IProduct) {
 
-    let reviewsLength = Array.from(data.reviews).length;
-    let totalReviews = Array.from(data.reviews).reduce((accumulator: number, currentValue: any) => {
-      return accumulator + currentValue.review;
-    }, 0);
-
-    this.rating = Math.round(totalReviews / reviewsLength);
-
-  }
 }

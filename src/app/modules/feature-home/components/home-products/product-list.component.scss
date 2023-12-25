@@ -1,27 +1,11 @@
-.filled.color1 {
-    color: #ffc107;
-}
-
-.filled.color2 {
-    color: #ffc107;
-}
-
-.filled.color4 {
-    color: #ffc107;
-
-}
-
-.filled.color3 {
-    color: #ffc107;
-}
-
 .carousel-caption {
+    display: inline;
     position: initial;
     height: 500px;
     padding: 0;
 
-    img {
-        max-width: 90%;
-        object-fit: contain;
-    }
+    // img {
+    //     max-width: 90%;
+    //     object-fit: contain;
+    // }
 }
