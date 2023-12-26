@@ -1,6 +1,6 @@
 <!--=====================================
-    							Product
-    							======================================-->
+Product
+======================================-->
 
 <section *ngFor="let product of products" class="ps-product">
 
@@ -46,7 +46,6 @@
             <marketplace-rating [product]="product"></marketplace-rating>
 
             <marketplace-offers [product]="product"></marketplace-offers>
-            <!-- <p class="ps-product__price">$22.99 - $32.99</p> -->
 
         </div>
 
@@ -54,7 +53,7 @@
 
             <a class="ps-product__title" routerLink="product/{{product.url}}">
                 {{product.name}}</a>
-            pppp
+
             <marketplace-offers [product]="product"></marketplace-offers>
 
         </div>

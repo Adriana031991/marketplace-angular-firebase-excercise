@@ -1,4 +1,4 @@
-<div class="ps-product__badge">{{disccount}}</div>
+<div class="ps-product__badge" *ngIf="product.offer[1] != ''">{{disccount}}</div>
 <div class="ps-product__badge out-stock" *ngIf="product.stock == 0">Sin inventario</div>
 
 

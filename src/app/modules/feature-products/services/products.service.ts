@@ -45,16 +45,5 @@ export class ProductsService {
     );
   }
 
-  getProductsFiltered$(orderBy: string, equalTo: string) {
-    return this._firebaseCollectionService.getProductsFiltered$(orderBy, equalTo).pipe(
-      tap(
-        // res => console.log(res)
-
-      ),
-      map(res => {
-        return res.sort((a, b) => b.sales - a.sales).slice(0, 10)
-      })
-    )
-  }
 
 }

@@ -26,4 +26,5 @@ export interface IProduct {
     vertical_slider: string;
     reviews: string;
     summary: string;
+    views: number;
 }

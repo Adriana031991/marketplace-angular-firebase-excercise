@@ -1,25 +1,28 @@
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
 import { ItemDetailComponent } from '../item-detail/item-detail.component';
-import { ActivatedRoute } from '@angular/router';
+import { CatalogHeaderComponent } from './catalog-header/catalog-header.component';
+import { CatalogPaginationComponent } from './catalog-pagination/catalog-pagination.component';
 import { IProduct } from 'src/app/shared/models/IProduct.interface';
 import { ProductsByRoutesService } from 'src/app/shared/services/products-by-routes.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'marketplace-best-sales-item',
-  templateUrl: './best-sales-item.component.html',
-  styleUrls: ['./best-sales-item.component.scss'],
+  selector: 'marketplace-products-catalog',
   standalone: true,
-  imports: [CommonModule, ItemDetailComponent]
+  imports: [CommonModule, ItemDetailComponent, CatalogHeaderComponent, CatalogPaginationComponent],
+  templateUrl: './products-catalog.component.html',
+  styleUrls: ['./products-catalog.component.scss']
 })
-export class BestSalesItemComponent implements OnInit {
+export class ProductsCatalogComponent {
+
 
   ngOnInit(): void {
     let component = this;
     this._service.getProductsByRoutes(this._activateRoute).subscribe({
       next(value) {
-        // console.log(value);
-        value.sort((a, b) => b.sales - a.sales)
+        console.log(value);
+        value.sort((a, b) => b.views - a.views)
         component.products = value
       },
     })

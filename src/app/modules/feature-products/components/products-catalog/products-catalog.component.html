@@ -1,0 +1,54 @@
+<section class="ps-shopping ps-tab-root">
+
+    <!--=====================================
+    Shoping Header
+    ======================================-->
+
+    <marketplace-catalog-header></marketplace-catalog-header>
+
+
+    <!--=====================================
+    Shoping Body
+    ======================================-->
+
+    <div class="ps-tabs">
+
+        <!--=====================================
+        Grid View
+        ======================================-->
+
+        <div class="ps-tab active" id="tab-1">
+
+            <div class="ps-shopping-product">
+
+                <div class="row">
+
+                    <marketplace-item-detail [products]='products'></marketplace-item-detail>
+
+                </div>
+
+            </div>
+
+            <marketplace-catalog-pagination></marketplace-catalog-pagination>
+
+        </div><!-- End Grid View-->
+
+        <!--=====================================
+        List View
+        ======================================-->
+
+        <div class="ps-tab" id="tab-2">
+
+            <div class="ps-shopping-product">
+                <marketplace-item-detail [products]='products'></marketplace-item-detail>
+
+            </div>
+
+            <marketplace-catalog-pagination></marketplace-catalog-pagination>
+
+
+        </div>
+
+    </div>
+
+</section>
