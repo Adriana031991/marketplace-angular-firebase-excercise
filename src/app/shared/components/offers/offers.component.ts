@@ -21,8 +21,6 @@ export class OffersComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.product);
-    // this.product.offer = '0'
     if (this.product?.offer[0] == 'Disccount') {
       this.offer = Math.floor(this.product?.price - (this.product?.price * parseInt(this.product?.offer[1]) / 100))
       this.disccount = parseInt(this.product?.offer[1])

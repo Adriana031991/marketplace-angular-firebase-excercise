@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,5 +9,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./catalog-header.component.scss']
 })
 export class CatalogHeaderComponent {
+  @Output() activeView = new EventEmitter();
+  activeTab = 1;
+  changeTab(tabIndex: number) {
+    this.activeTab = tabIndex;
+    this.activeView.emit(tabIndex)
+  }
 
 }

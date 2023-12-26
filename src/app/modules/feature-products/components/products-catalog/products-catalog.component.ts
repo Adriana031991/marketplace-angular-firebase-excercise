@@ -21,7 +21,7 @@ export class ProductsCatalogComponent {
     let component = this;
     this._service.getProductsByRoutes(this._activateRoute).subscribe({
       next(value) {
-        console.log(value);
+        // console.log(value);
         value.sort((a, b) => b.views - a.views)
         component.products = value
       },
@@ -33,5 +33,10 @@ export class ProductsCatalogComponent {
   private _service = inject(ProductsByRoutesService)
   products: IProduct[] = []
 
+  viewOfTap: number = 1;
+
+  changeView(event: number) {
+    this.viewOfTap = event
+  }
 
 }

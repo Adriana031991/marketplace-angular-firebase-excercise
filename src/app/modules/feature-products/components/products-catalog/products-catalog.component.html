@@ -4,7 +4,7 @@
     Shoping Header
     ======================================-->
 
-    <marketplace-catalog-header></marketplace-catalog-header>
+    <marketplace-catalog-header (activeView)="changeView($event)"></marketplace-catalog-header>
 
 
     <!--=====================================
@@ -17,7 +17,7 @@
         Grid View
         ======================================-->
 
-        <div class="ps-tab active" id="tab-1">
+        <article class="ps-tab active" *ngIf="viewOfTap == 1">
 
             <div class="ps-shopping-product">
 
@@ -31,13 +31,14 @@
 
             <marketplace-catalog-pagination></marketplace-catalog-pagination>
 
-        </div><!-- End Grid View-->
+        </article>
+        <!-- End Grid View-->
 
         <!--=====================================
         List View
         ======================================-->
 
-        <div class="ps-tab" id="tab-2">
+        <article class="ps-tab active" *ngIf="viewOfTap == 2">
 
             <div class="ps-shopping-product">
                 <marketplace-item-detail [products]='products'></marketplace-item-detail>
@@ -47,7 +48,7 @@
             <marketplace-catalog-pagination></marketplace-catalog-pagination>
 
 
-        </div>
+        </article>
 
     </div>
 

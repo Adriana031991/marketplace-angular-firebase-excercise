@@ -1,6 +1,6 @@
 <div class="ps-shopping__header">
 
-    <p><strong> 36</strong> Products found</p>
+    <span><strong> 36</strong> Products found</span>
 
     <div class="ps-shopping__actions">
 
@@ -16,18 +16,18 @@
 
         <div class="ps-shopping__view">
 
-            <p>View</p>
+            <span>View</span>
 
             <ul class="ps-tab-list">
 
-                <li class="active">
-                    <a href="#tab-1">
+                <li [class.active]="activeTab === 1" (click)="changeTab(1)">
+                    <a>
                         <i class="icon-grid"></i>
                     </a>
                 </li>
 
-                <li>
-                    <a href="#tab-2">
+                <li [class.active]="activeTab === 2" (click)="changeTab(2)">
+                    <a>
                         <i class="icon-list4"></i>
                     </a>
                 </li>
