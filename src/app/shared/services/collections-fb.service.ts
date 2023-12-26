@@ -34,7 +34,7 @@ export class CollectionsFbService {
 
         return r
       })
-      console.log(res);
+      // console.log(res);
 
       return res;
     }))
@@ -62,7 +62,7 @@ export class CollectionsFbService {
 
             return r
           })
-          console.log(res);
+          // console.log(res);
 
           return res;
         })
@@ -86,7 +86,7 @@ export class CollectionsFbService {
             r.summary = JSON.parse(r.summary)
             return r
           })
-          console.log(res);
+          // console.log(res);
           return res;
         })
       )
@@ -97,7 +97,6 @@ export class CollectionsFbService {
       .pipe(
         map((data) => {
           let res = Object.entries(data)
-          console.log(res);
           res.map(r => {
             r[1].horizontal_slider = Object.entries(JSON.parse(r[1].horizontal_slider)) as any
             r[1].offer = JSON.parse(r[1].offer)
@@ -112,7 +111,6 @@ export class CollectionsFbService {
 
             return r
           })
-          console.log(res);
           return res;
         })
       )

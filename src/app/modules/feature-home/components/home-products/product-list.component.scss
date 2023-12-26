@@ -4,8 +4,10 @@
     height: 500px;
     padding: 0;
 
-    // img {
-    //     max-width: 90%;
-    //     object-fit: contain;
-    // }
+}
+
+.ps-product .ps-product__badge {
+    position: relative !important;
+    top: 4% !important;
+    right: 2% !important;
 }

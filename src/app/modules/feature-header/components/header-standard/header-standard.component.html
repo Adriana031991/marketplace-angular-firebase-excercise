@@ -78,8 +78,7 @@
 
                             <li *ngFor="let category of categories(); let i = index; let lastIndex = index"
                                 class="menu-item-has-children has-mega-menu">
-                                <a *ngIf="category.name=='Salud y Belleza'"
-                                    routerLink="/home/products/{{category.url}}">
+                                <a *ngIf="category.name=='Salud y Belleza'" routerLink="products/{{category.url}}">
                                     <i class="{{category.icon}}"></i>
                                     {{category.name}}</a>
                                 <div class="mega-menu">
@@ -91,7 +90,7 @@
                                         <ul class="mega-menu__list">
                                             <div *ngFor="let item of arrayTitleName">
                                                 <li *ngIf="title == item.titleList">
-                                                    <a routerLink="/home/products/{{item.url}}">{{item.subCategory}}</a>
+                                                    <a routerLink="products/{{item.url}}">{{item.subCategory}}</a>
                                                 </li>
 
                                             </div>

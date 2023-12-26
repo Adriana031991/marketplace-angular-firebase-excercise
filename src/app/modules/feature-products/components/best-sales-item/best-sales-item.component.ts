@@ -26,6 +26,7 @@ export class BestSalesItemComponent implements OnInit {
     let component = this;
     this._activateRoute.params
       .pipe(
+        // tap(d => console.log(d)),
         tap((value) => parameter = value['param']),
         switchMap(({ param }) =>
 

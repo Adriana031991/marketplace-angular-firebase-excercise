@@ -8650,6 +8650,7 @@ input[type=number] {
   height: auto;
   visibility: visible;
   opacity: 1;
+  display: contents;
 }
 
 .ps-product:hover.ps-product--inner {

@@ -1,1 +1,19 @@
-<p>offers works!</p>,
+<div class="ps-product__badge">{{disccount}}</div>
+<div class="ps-product__badge out-stock" *ngIf="product.stock == 0">Sin inventario</div>
+
+
+<div *ngIf="offer; else withoutOffer">
+
+    <p class="ps-product__price sale">
+        ${{offer}}
+        <del>{{product.price}} </del>
+    </p>
+
+</div>
+
+<ng-template #withoutOffer>
+    <p class="ps-product__price">
+        {{product.price}}
+    </p>
+
+</ng-template>

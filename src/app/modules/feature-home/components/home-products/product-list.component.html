@@ -2,7 +2,7 @@
 	Section Gray
 	======================================-->
 
-<div class="ps-section--gray" *ngIf="preload">
+<section class="ps-section--gray">
 
     <div class="container">
 
@@ -10,18 +10,18 @@
 			Products of category
 			======================================-->
 
-        <div class="ps-block--products-of-category" *ngFor="let category of categories()">
+        <section class="ps-block--products-of-category" *ngFor="let category of categories()">
 
             <!--=====================================
 				Menu subcategory
 				======================================-->
 
-            <div class="ps-block__categories" *ngIf="category.url == 'Salud-Belleza'">
+            <article class="ps-block__categories" *ngIf="category.url == 'Salud-Belleza'">
 
                 <h3>{{category?.name}}</h3>
                 <div *ngFor="let subCategory of subcategories()">
                     <ul *ngIf="category?.name == subCategory.category">
-                        <li><a [routerLink]="['/products/{{subcategory.url}}']">{{subCategory.subCategory}}</a></li>
+                        <li><a routerLink="products/{{subCategory.url}}">{{subCategory.subCategory}}</a></li>
 
                     </ul>
 
@@ -29,13 +29,13 @@
 
                 </div>
 
-            </div>
+            </article>
 
             <!--=====================================
 				Vertical Slider Category
 				======================================-->
 
-            <div class="ps-block__slider" *ngIf="category.url == 'Salud-Belleza'">
+            <article class="ps-block__slider" *ngIf="category.url == 'Salud-Belleza'">
                 <ngb-carousel [showNavigationIndicators]="false" [interval]="5000">
 
                     <ng-template ngbSlide *ngFor="let slide of healtAndBeautyProducts()">
@@ -48,25 +48,14 @@
 
                     </ng-template>
                 </ngb-carousel>
-                <!-- <div class="ps-carousel--product-box owl-slider" data-owl-auto="true" data-owl-loop="true"
-                    data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1"
-                    data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1"
-                    data-owl-duration="500" data-owl-mousedrag="off">
 
-                    <a href="#">
 
-                        <img src="assets/img/slider/vertical/clothing-1.jpg" alt="">
-
-                    </a>
-
-                </div> -->
-
-            </div>
+            </article>
             <!--=====================================
 				Block Product Box
 				======================================-->
 
-            <div class="ps-block__product-box" *ngIf="category.url == 'Salud-Belleza'">
+            <article class="ps-block__product-box" *ngIf="category.url == 'Salud-Belleza'">
 
                 <!--=====================================
 					Product Simple
@@ -83,7 +72,7 @@
 
                             </a>
 
-                            <div class="ps-product__badge">-16%</div>
+                            <!-- <div class="ps-product__badge">-16%</div> -->
 
                         </div>
 
@@ -98,7 +87,9 @@
 
                                 </div>
 
-                                <p class="ps-product__price sale">${{offer()}} <del>{{product.price}} </del></p>
+
+                                <marketplace-offers [product]="product"></marketplace-offers>
+
 
                             </div>
 
@@ -106,14 +97,14 @@
                     </div>
                 </div><!-- End Block Product Box -->
 
-            </div><!-- End Products of category -->
+            </article><!-- End Products of category -->
 
-        </div><!-- End Container-->
+        </section><!-- End Container-->
 
-        <div *ngIf="!preload" class="d-flex justify-content-center">
+        <!-- <div *ngIf="!preload" class="d-flex justify-content-center">
 
             <div class="spinner-border text-muted my-5"></div>
 
-        </div>
+        </div> -->
 
     </div><!-- End Section Gray-->
