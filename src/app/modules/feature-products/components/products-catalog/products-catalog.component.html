@@ -23,7 +23,8 @@
 
                 <div class="row">
 
-                    <marketplace-item-detail [products]='products'></marketplace-item-detail>
+                    <marketplace-item-detail-gird-view [products]='products'
+                        class="d-flex w-100 mx-4"></marketplace-item-detail-gird-view>
 
                 </div>
 
@@ -41,7 +42,10 @@
         <article class="ps-tab active" *ngIf="viewOfTap == 2">
 
             <div class="ps-shopping-product">
-                <marketplace-item-detail [products]='products'></marketplace-item-detail>
+
+                <marketplace-item-detail-list-view [products]='products'
+                    class="d-block w-100 px-5"></marketplace-item-detail-list-view>
+
 
             </div>
 

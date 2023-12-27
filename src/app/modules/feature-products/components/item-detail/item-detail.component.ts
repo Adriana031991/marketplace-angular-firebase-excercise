@@ -6,7 +6,7 @@ import { RatingComponent } from 'src/app/shared/components/rating/rating.compone
 import { IProduct } from 'src/app/shared/models/IProduct.interface';
 
 @Component({
-  selector: 'marketplace-item-detail',
+  selector: 'marketplace-item-detail-gird-view',
   standalone: true,
   imports: [
     CommonModule, RouterModule, RatingComponent, OffersComponent
@@ -15,7 +15,7 @@ import { IProduct } from 'src/app/shared/models/IProduct.interface';
   styleUrls: ['./item-detail.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ItemDetailComponent {
+export class ItemDetailGridViewComponent {
 
   @Input() products: IProduct[] = []
 

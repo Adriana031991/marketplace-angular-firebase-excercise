@@ -54,6 +54,7 @@ export class CollectionsFbService {
             r.offer = JSON.parse(r.offer)
             r.gallery = JSON.parse(r.gallery)
             r.reviews = JSON.parse(r.reviews)
+            r.summary = JSON.parse(r.summary)
             // r.specification = JSON.parse(r.specification)
             r.details = JSON.parse(r.details)
             r.tags = JSON.parse(r.tags)

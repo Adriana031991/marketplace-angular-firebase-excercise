@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ItemDetailComponent } from '../item-detail/item-detail.component';
+import { ItemDetailGridViewComponent } from '../item-detail/item-detail.component';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from 'src/app/shared/models/IProduct.interface';
 import { switchMap, tap } from 'rxjs';
@@ -11,7 +11,7 @@ import { ProductsByRoutesService } from 'src/app/shared/services/products-by-rou
 @Component({
   selector: 'marketplace-products-recomended',
   standalone: true,
-  imports: [CommonModule, ItemDetailComponent],
+  imports: [CommonModule, ItemDetailGridViewComponent],
   templateUrl: './products-recomended.component.html',
   styleUrls: ['./products-recomended.component.scss']
 })
@@ -24,7 +24,12 @@ export class ProductsRecomendedComponent implements OnInit {
       next(value) {
         // console.log(value);
         value.sort((a, b) => b.views - a.views)
-        component.products = value
+        value.map(data => {
+          if (data.stock > 0) {
+            component.products = [...component.products, data]
+          }
+        }
+        )
       },
     })
 

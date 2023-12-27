@@ -8790,6 +8790,7 @@ input[type=number] {
 .ps-product--wide .ps-product__thumbnail {
   min-width: 210px;
   flex-basis: 210px;
+  align-self: center;
 }
 
 .ps-product--wide .ps-product__container {
