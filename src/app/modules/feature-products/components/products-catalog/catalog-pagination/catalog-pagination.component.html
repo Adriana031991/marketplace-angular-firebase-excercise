@@ -1,10 +1,25 @@
 <div class="ps-pagination">
 
-    <ul class="pagination">
+    <!-- <ul class="pagination">
         <li class="active"><a href="#">1</a></li>
         <li><a href="#">2</a></li>
         <li><a href="#">3</a></li>
         <li><a href="#">Next Page<i class="icon-chevron-right"></i></a></li>
+    </ul> -->
+
+
+
+    <ul class="pagination">
+        <li *ngIf="showPrevPage" (click)="changePage(currentPage - 1)">
+            <a>Prev Page<i class="icon-chevron-left"></i></a>
+        </li>
+        <li *ngFor="let page of totalPagesAsArray;let i = index;" [ngClass]="{'active': currentPage === i + 1}"
+            (click)="changePage(i + 1)"><a>{{i + 1}}</a> </li>
+
+        <li *ngIf="currentPage < totalPages" (click)="changePage(currentPage + 1)">
+            <a>Next Page<i class="icon-chevron-right"></i></a>
+        </li>
     </ul>
+
 
 </div>

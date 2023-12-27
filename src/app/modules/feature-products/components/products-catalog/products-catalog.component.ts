@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ItemDetailGridViewComponent } from '../item-detail/item-detail.component';
 import { CatalogHeaderComponent } from './catalog-header/catalog-header.component';
@@ -26,18 +26,31 @@ export class ProductsCatalogComponent {
         // value.sort((a, b) => b.views - a.views)
         value.map(data => {
           if (data.stock > 0) {
-            component.products = [...component.products, data]
+            // component.products = [...component.products, data]
+            component.products.update(store => [...store, data])
+            component.products.update(store => [...store, data])
+            component.products.update(store => [...store, data])
+            component.products.update(store => [...store, data])
+            component.products.update(store => [...store, data])
+            component.products.update(store => [...store, data])
+            component.products.update(store => [...store, data])
+            component.products.update(store => [...store, data])
+            component.products.update(store => [...store, data])
+            component.products.update(store => [...store, data])
           }
         }
         )
+
       },
     })
 
+
   }
+
 
   private _activateRoute = inject(ActivatedRoute)
   private _service = inject(ProductsByRoutesService)
-  products: IProduct[] = []
+  products = signal<IProduct[]>([])
 
   viewOfTap: number = 1;
 

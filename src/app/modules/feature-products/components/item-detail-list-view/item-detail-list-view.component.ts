@@ -14,11 +14,6 @@ import { IProduct } from 'src/app/shared/models/IProduct.interface';
 })
 export class ItemDetailListViewComponent {
   @Input() products: IProduct[] = []
-  // summary = this.products.map(data => {
-  //   data.summary
-  // })
-  // OnInit() {
 
-  // }
 
 }

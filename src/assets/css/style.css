@@ -2235,6 +2235,7 @@ textarea.form-control {
   display: inline-block;
   min-width: 120px;
   cursor: pointer;
+  font-size: small;
 }
 
 .ps-select .selectize-input {
@@ -13199,6 +13200,7 @@ input[type=number] {
 .ps-shopping .ps-shopping__header p {
   margin-bottom: 0;
   display: inline-block;
+  margin-top: 0;
 }
 
 .ps-shopping .ps-shopping__header p strong {
