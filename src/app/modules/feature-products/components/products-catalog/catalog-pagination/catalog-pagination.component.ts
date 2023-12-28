@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, Signal, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IProduct } from 'src/app/shared/models/IProduct.interface';
 
@@ -7,38 +7,45 @@ import { IProduct } from 'src/app/shared/models/IProduct.interface';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './catalog-pagination.component.html',
-  styleUrls: ['./catalog-pagination.component.scss']
+  styleUrls: ['./catalog-pagination.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class CatalogPaginationComponent {
-  @Input() products = signal<IProduct[]>([])
+  @Input() products!: Signal<IProduct[]>
 
   currentPage: number = 1;
+
   itemsPerPage: number = 10;
   totalItems = computed(() => this.products().length)
 
   @Output() pageChanged: EventEmitter<number> = new EventEmitter();
 
-  public showPrevPage: boolean = false;
 
 
   get totalPages(): number {
+    console.log(this.currentPage);
+
     return Math.ceil(this.totalItems() / this.itemsPerPage);
   }
 
-  get totalPagesAsArray(): Array<number> {
-    let r: number[] = []
-    return r = [...r, this.totalPages]
+  get totalPagesAsArray(): number[] {
+    let pages: number[] = []
+    console.log(this.totalPages);
+
+    for (let index = 0; index < this.totalPages; index++) {
+      pages.push(index)
+
+    }
+
+    return pages
   }
 
   changePage(page: number): void {
-    console.log(this.totalPagesAsArray);
-    console.log(this.totalItems());
 
     if (page >= 1 && page <= this.totalPages) {
-      this.showPrevPage = this.currentPage > 1;
       this.currentPage = page;
       this.pageChanged.emit(page);
-      console.log('pasa ', page);
 
     }
 
